@@ -1,18 +1,4 @@
-;;Setting for Font;
-;(set-face-attribute 'default nil
-;        :family "osaka"
-;        :height 90)
-;(set-fontset-font "fontset-default"
-;        'japanese-jisx0208
-;        '("osaka" . "jisx0208-sjis"))
-
-
-;;;;;;Setting for YaTeX;;;
-(setq auto-mode-alist
-      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
-(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-
-;;”wŒiF‚Ìİ’è
+;;èƒŒæ™¯è‰²ã®è¨­å®š
 (custom-set-faces
 '(default ((t
 (:background "#000040" :foreground "#e0e0e0")
@@ -23,13 +9,23 @@
 (((class color)
 (background light))
 (:background "#999999"))
-(t ()))))
+(t ())
+)))
 
- 
-
-;; C-x c‚ÅM-x compile‚É‚È‚é
+;; C-x cã§M-x compileã«ãªã‚‹
 (global-set-key "\C-xc" 'compile)
-
  
-;; C-h ‚Åbackspace‚É‚·‚é
+;; C-h ã§backspaceã«ã™ã‚‹
 (global-set-key "\C-h" 'delete-backward-char)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;;   Setting for YaTeX
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq load-path (cons (expand-file-name "~/.emacs.d/yatex") load-path))
+
+(setq auto-mode-alist
+      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
