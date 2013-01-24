@@ -1,3 +1,12 @@
+;; Windows Only
+;;Setting for Font;
+(set-face-attribute 'default nil
+        :family "osaka"
+        :height 90)
+(set-fontset-font "fontset-default"
+        'japanese-jisx0208
+        '("osaka" . "jisx0208-sjis"))
+
 ;;背景色の設定
 (custom-set-faces
 '(default ((t
