@@ -29,12 +29,3 @@
 (setq auto-mode-alist
       (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
 (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-
-
-;; load ibus.el
-(require 'ibus)
-(add-hook 'after-init-hook 'ibus-mode-on)
-(load-library "mozc")
-(require 'mozc)
-(set-language-environment "Japanese")
-(setq default-input-method "japanese-mozc")
