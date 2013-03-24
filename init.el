@@ -32,3 +32,6 @@
 
 ;; haskell-modeの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4haskell-mode.el")
+
+;; haskell-modeの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4flymake.el")
