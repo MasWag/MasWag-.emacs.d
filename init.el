@@ -27,5 +27,14 @@
 ;; haskell-modeの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4haskell-mode.el")
 
-;; haskell-modeの設定ファイルを読み込む
+;; Proof General
+(load-file "~/.emacs.d/ProofGeneral/generic/proof-site.el")
+
+;; flymakeの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4flymake.el")
+
+;; Jabberの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4jabber.el")
+
+;; rcircの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4rcirc.el")
