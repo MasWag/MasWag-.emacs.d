@@ -18,6 +18,11 @@
 ;; C-h でbackspaceにする
 (global-set-key "\C-h" 'delete-backward-char)
 
+;;Emacsのコピーをクリップボードに
+(cond (window-system
+(setq x-select-enable-clipboard t)
+)) 
+
 ;; ses-csv
 (load-file "~/.emacs.d/ses-csv.el")
 
@@ -38,3 +43,6 @@
 
 ;; rcircの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4rcirc.el")
+
+;; gtags
+(load-file "~/.emacs.d/setting4gtags.el")
