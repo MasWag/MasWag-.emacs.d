@@ -18,6 +18,8 @@
 ;; C-h でbackspaceにする
 (global-set-key "\C-h" 'delete-backward-char)
 
+;; ses-csv
+(load-file "~/.emacs.d/ses-csv.el")
 
 ;; yatexの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4yatex.el")
