@@ -53,9 +53,6 @@
 ;; gtags
 (load-file "~/.emacs.d/setting4gtags.el")
 
-;; evernote
-;(load-file "~/.emacs.d/setting4evernote.el")
-
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; End:
