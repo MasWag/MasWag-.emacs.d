@@ -1,3 +1,9 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  -*- coding: utf-8-unix -*-
+;;  Emacs 初期設定ファイル
+;;    Masaki Waga <tsugarutamenobu@gmail.com>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;背景色の設定
 (custom-set-faces
 '(default ((t
@@ -46,3 +52,7 @@
 
 ;; gtags
 (load-file "~/.emacs.d/setting4gtags.el")
+
+;; Local Variables:
+;; mode: emacs-lisp
+;; End:
