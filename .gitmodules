@@ -1,3 +1,6 @@
 [submodule "haskell-mode"]
 	path = haskell-mode
 	url = git@github.com:haskell/haskell-mode.git
+[submodule "jabber"]
+	path = jabber
+	url = git://emacs-jabber.git.sourceforge.net/gitroot/emacs-jabber/emacs-jabber
