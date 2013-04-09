@@ -45,13 +45,17 @@
 (load-file "~/.emacs.d/init4flymake.el")
 
 ;; Jabberの設定ファイルを読み込む
-(load-file "~/.emacs.d/init4jabber.el")
+;(load-file "~/.emacs.d/init4jabber.el")
 
 ;; rcircの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4rcirc.el")
 
 ;; gtags
-(load-file "~/.emacs.d/setting4gtags.el")
+;(load-file "~/.emacs.d/setting4gtags.el")
+
+;; magit
+(add-to-list 'load-path "~/.emacs.d/magit")
+(require 'magit)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
