@@ -1,6 +1,6 @@
 [submodule "haskell-mode"]
 	path = haskell-mode
-	url = git@github.com:haskell/haskell-mode.git
-[submodule "jabber"]
-	path = jabber
-	url = git://emacs-jabber.git.sourceforge.net/gitroot/emacs-jabber/emacs-jabber
+	url = https://github.com/haskell/haskell-mode.git
+[submodule "magit"]
+	path = magit
+	url = https://github.com/magit/magit.git

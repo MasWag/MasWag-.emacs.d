@@ -62,6 +62,11 @@
 ;; gtags
 ;(load-file "~/.emacs.d/setting4gtags.el")
 
+
+;; magit
+(add-to-list 'load-path "~/.emacs.d/magit")
+(require 'magit)
+
 ;; Local Variables:
 ;; mode: emacs-lisp
 ;; End:
