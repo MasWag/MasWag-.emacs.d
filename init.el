@@ -18,6 +18,8 @@
 (t ())
 )))
 
+(add-to-list 'load-path "~/.emacs.d/")
+
 ;; C-x cでM-x compileになる
 (global-set-key "\C-xc" 'compile)
  
