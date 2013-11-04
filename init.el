@@ -4,6 +4,12 @@
 ;;    Masaki Waga <tsugarutamenobu@gmail.com>
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+(setq c-default-style "k&r"
+      c-basic-offset 4)
+
+(tool-bar-mode 0)
+
 ;;背景色の設定
 (custom-set-faces
 '(default ((t
@@ -52,12 +58,37 @@
 ;; rcircの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4rcirc.el")
 
+;; mediawiki-modeの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4mediawiki-mode.el")
+
 ;; gtags
 ;(load-file "~/.emacs.d/setting4gtags.el")
+
+;; Evernote
+(load-file "~/.emacs.d/setting4evernote.el")
+
+;; elpa
+(load-file "~/.emacs.d/init4elpa.el")
+
+;; rosemacsの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4rosemacs.el")
 
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/magit")
 (require 'magit)
+
+;; markdown-modeの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4markdown-mode.el")
+
+;; auto-completeの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4auto-complete.el")
+
+;; mozc-el
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
+(define-key global-map [zenkaku-hankaku] 'toggle-input-method)
+
+(require 'w3m-load)
 
 ;; Local Variables:
 ;; mode: emacs-lisp
