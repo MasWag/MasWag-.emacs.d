@@ -1,10 +1,10 @@
-;;; -*- Emacs-Lisp -*-
-;;; YaTeX package manager
-;;; yatexpkg.el
-;;; (c)2003-2012 by HIROSE, Yuuji [yuuji@yatex.org]
-;;; Last modified Mon Jan  9 20:13:53 2012 on firestorm
-;;; $Id: yatexpkg.el,v 1.76 2012/05/14 10:55:57 yuuji Rel $
+;;; yatexpkg.el --- YaTeX package manager
+;;; 
+;;; (c)2003-2013 by HIROSE, Yuuji [yuuji@yatex.org]
+;;; Last modified Mon Apr  1 22:44:31 2013 on firestorm
+;;; $Id: yatexpkg.el,v 1.77 2013/04/01 13:53:45 yuuji Rel $
 
+;;; Code:
 (defvar YaTeX-package-ams-envs
   (mapcar 'car YaTeX-ams-env-table))
 

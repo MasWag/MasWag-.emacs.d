@@ -63,6 +63,21 @@
 ;(load-file "~/.emacs.d/setting4gtags.el")
 
 
+;; mediawiki-modeの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4mediawiki-mode.el")
+
+;; gtags
+;(load-file "~/.emacs.d/setting4gtags.el")
+
+;; Evernote
+(load-file "~/.emacs.d/setting4evernote.el")
+
+;; elpa
+(load-file "~/.emacs.d/init4elpa.el")
+
+;; rosemacsの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4rosemacs.el")
+
 ;; magit
 (add-to-list 'load-path "~/.emacs.d/magit")
 (require 'magit)
