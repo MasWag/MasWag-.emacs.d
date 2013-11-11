@@ -5,6 +5,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
+
 (setq c-default-style "k&r"
       c-basic-offset 4)
 
@@ -83,10 +85,25 @@
 ;; auto-completeの設定ファイルを読み込む
 (load-file "~/.emacs.d/init4auto-complete.el")
 
+;; twittering-modeの設定ファイルを読み込む
+(load-file "~/.emacs.d/init4twittering-mode.el")
+
 ;; mozc-el
 (require 'mozc)
 (setq default-input-method "japanese-mozc")
 (define-key global-map [zenkaku-hankaku] 'toggle-input-method)
+;; 変換キーでIME ON
+(define-key global-map [M-henkan]
+  (lambda ()
+    (interactive)
+    (if current-input-method (inactivate-input-method))
+    (toggle-input-method)))
+
+;; 無変換キーでIME OFF
+(define-key global-map [muhenkan]
+  (lambda ()
+    (interactive)
+    (inactivate-input-method)))
 
 (require 'w3m-load)
 
