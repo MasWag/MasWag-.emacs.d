@@ -6,6 +6,7 @@
     helm
     c-eldoc
     magit
+    ggtags
     ))
 
 (let ((not-installed (loop for x in installing-package-list
