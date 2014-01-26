@@ -6,6 +6,7 @@
     helm
     c-eldoc
     magit
+    helm-gtags
     ggtags
     ))
 
