@@ -8,6 +8,7 @@
 
 ;;; hideshow
 (add-hook 'c-mode-hook 'hs-minor-mode)
+(add-hook 'c++-mode-hook 'hs-minor-mode)
 
 ;;; settings4toggle-dot-pointer
 (load-file "~/.emacs.d/c-toggle-dot-pointer.el")
