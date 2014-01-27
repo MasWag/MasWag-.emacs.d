@@ -1,7 +1,9 @@
 init.el
+elpa
 auto-save-list*
 *.bak
 *.dat
 *~
 session*
 tramp
+server
