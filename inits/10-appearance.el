@@ -14,3 +14,11 @@
 	     ))))
 ;; tool-barを消す
 (tool-bar-mode 0)
+
+;; C-h でbackspaceにする
+(global-set-key "\C-h" 'delete-backward-char)
+
+;;Emacsのコピーをクリップボードに
+(cond (window-system
+       (setq x-select-enable-clipboard t)
+       )) 
