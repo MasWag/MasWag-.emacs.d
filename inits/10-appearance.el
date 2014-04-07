@@ -12,6 +12,8 @@
 	      (:background "#999999"))
 	     (t ())
 	     ))))
+;; フレーム透過設定
+(add-to-list 'default-frame-alist '(alpha . (0.75 0.75)))
 ;; tool-barを消す
 (tool-bar-mode 0)
 
