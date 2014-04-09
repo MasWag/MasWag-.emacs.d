@@ -12,6 +12,7 @@
     ggtags
     markdown-mode
     skype
+    tuareg
     ))
 
 (let ((not-installed (loop for x in installing-package-list
