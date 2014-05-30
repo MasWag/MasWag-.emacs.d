@@ -2,7 +2,7 @@
 (setq default-input-method "japanese-mozc")
 (define-key global-map [zenkaku-hankaku] 'toggle-input-method)
 ;; 変換キーでIME ON
-(define-key global-map [M-henkan]
+(define-key global-map [henkan]
   (lambda ()
     (interactive)
     (if current-input-method (inactivate-input-method))

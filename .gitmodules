@@ -4,3 +4,6 @@
 [submodule "magit"]
 	path = magit
 	url = https://github.com/magit/magit.git
+[submodule "evernote-mode"]
+	path = evernote-mode
+	url = https://github.com/pymander/evernote-mode.git
