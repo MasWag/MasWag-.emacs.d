@@ -9,6 +9,7 @@
     auto-complete-clang-async
     magit
     helm-gtags
+    helm-ag
     ggtags
     markdown-mode
     skype
