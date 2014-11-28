@@ -6,6 +6,9 @@
 
 (setq load-path (cons (expand-file-name "~/.emacs.d/yatex") load-path))
 (setq YaTeX-inhibit-prefix-letter t)
+(setq YaTeX-use-AMS-LaTeX t)
+(setq dviprint-command-format "dvipdfmx %s")
+
 
 (setq auto-mode-alist
       (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))

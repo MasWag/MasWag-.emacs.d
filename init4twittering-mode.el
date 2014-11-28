@@ -17,3 +17,6 @@
 		    ("U" . twittering-user-timeline)
 		    ("T" . twittering-retweet)
 		    ("W" . twittering-update-status-interactive)))))
+
+;; C-x t でtweetする
+(global-set-key "\C-xt" 'twittering-update-status-interactive)

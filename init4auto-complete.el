@@ -1,5 +1,17 @@
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/auto-complete")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/usr/share/emacs/site-lisp/auto-complete/ac-dict")
 (ac-config-default)
 
+(require 'auto-complete-clang-async)
+
+(defun ac-cc-mode-setup ()
+  (setq ac-clang-complete-executable "/usr/bin/clang-complete")
+  (setq ac-sources '(ac-source-clang-async))
+  (ac-clang-launch-completion-process)
+)
+
+(defun my-ac-config ()
+  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+  (global-auto-complete-mode t))
+
+(my-ac-config)

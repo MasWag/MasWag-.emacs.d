@@ -6,14 +6,24 @@
 (require 'flymake)
  
 (defun flymake-cc-init ()
-(let* ((temp-file (flymake-init-create-temp-buffer-copy
-'flymake-create-temp-inplace))
-(local-file (file-relative-name
-temp-file
-(file-name-directory buffer-file-name))))
-(list "g++" (list "-std=gnu++11 -Wall" "-Wextra" "-fsyntax-only" local-file))))
- 
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		     'flymake-create-temp-inplace))
+	 (local-file (file-relative-name
+		      temp-file
+		      (file-name-directory buffer-file-name))))
+    (list "g++" (list "-std=c++11" "-Wall" "-Wextra" "-fsyntax-only" local-file))))
 (push '("\\.cc$" flymake-cc-init) flymake-allowed-file-name-masks)
+
+
+(defun flymake-vhdl-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		     'flymake-create-temp-inplace))
+	 (local-file (file-relative-name
+		      temp-file
+		      (file-name-directory buffer-file-name))))
+    (list "ghdl" (list "-s" "--ieee=synopsys" "-fexplicit" local-file))))
+(push '("\\.vhdl$" flymake-vhdl-init) flymake-allowed-file-name-masks)
+(push '("\\.vhd$" flymake-vhdl-init) flymake-allowed-file-name-masks)
  
 ;; Minibuf Ç…èoóÕ
 (defun flymake-display-err-minibuf-for-current-line ()
