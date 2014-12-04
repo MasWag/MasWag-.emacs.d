@@ -27,3 +27,8 @@
 
 ;;; iedit
 (global-set-key [?\C-;] 'iedit-mode)
+
+;;; auto-yasnippet
+(require 'auto-yasnippet)
+(global-set-key (kbd "s-w") 'aya-create)
+(global-set-key (kbd "s-y") 'aya-expand)
