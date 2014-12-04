@@ -14,5 +14,9 @@
 (add-hook 'c-mode-hook 'hs-minor-mode)
 (add-hook 'c++-mode-hook 'hs-minor-mode)
 
+;;; yasnippet
+(add-hook 'c-mode-hook 'yas-minor-mode)
+(add-hook 'c++-mode-hook 'yas-minor-mode)
+
 ;;; settings4toggle-dot-pointer
 (load-file "~/.emacs.d/c-toggle-dot-pointer.el")

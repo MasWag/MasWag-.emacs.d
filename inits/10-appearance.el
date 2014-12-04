@@ -24,3 +24,6 @@
 (cond (window-system
        (setq x-select-enable-clipboard t)
        )) 
+
+;;; iedit
+(global-set-key [?\C-;] 'iedit-mode)
