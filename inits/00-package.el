@@ -3,6 +3,8 @@
 (defvar installing-package-list
   '(
     ;; ここに使っているパッケージを書く。
+    auto-complete
+    auto-complete-c-headers
     multi-term
     helm
     c-eldoc
@@ -15,7 +17,9 @@
     skype
     tuareg
     iedit
+    yasnippet
     auto-yasnippet
+    cedit
     ))
 
 (let ((not-installed (loop for x in installing-package-list

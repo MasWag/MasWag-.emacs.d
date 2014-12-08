@@ -8,4 +8,4 @@
 (package-initialize)
 
 ; melpa.el
-(require 'melpa)
+;;(require 'melpa)

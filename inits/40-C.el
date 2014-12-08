@@ -20,3 +20,7 @@
 
 ;;; settings4toggle-dot-pointer
 (load-file "~/.emacs.d/c-toggle-dot-pointer.el")
+
+;; c-header
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
