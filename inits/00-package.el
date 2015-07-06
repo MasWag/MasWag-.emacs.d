@@ -4,6 +4,8 @@
     helm
     magit
     ggtags
+    flycheck
+    yasnippet
     ))
 
 (let ((not-installed (loop for x in installing-package-list
