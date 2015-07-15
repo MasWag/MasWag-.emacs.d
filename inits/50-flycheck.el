@@ -21,9 +21,3 @@
           '(lambda ()
              (setq flycheck-checker 'vhdl-ghdl)
              (flycheck-mode 1)))
-(flycheck-set-checker-executable 'tex-chktex)
-
-(add-hook 'yatex-mode-hook
-          '(lambda ()
-             (setq flycheck-checker 'tex-chktex)
-             (flycheck-mode 1)))
