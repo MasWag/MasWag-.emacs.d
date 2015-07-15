@@ -6,6 +6,8 @@
     ggtags
     flycheck
     yasnippet
+    ddskk
+    iedit
     ))
 
 (let ((not-installed (loop for x in installing-package-list
