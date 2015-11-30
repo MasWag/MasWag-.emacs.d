@@ -8,8 +8,13 @@
 (setq YaTeX-inhibit-prefix-letter t)
 (setq YaTeX-use-AMS-LaTeX t)
 (setq dviprint-command-format "lpr %s")
-(setq dvi2-command "pxdvi -expert -watchfile 1")
+;(setq dvi2-command "pxdvi -expert -watchfile 1")
+(setq YaTeX-kanji-code nil)
 
+;; Settings for LuaLaTeX
+(setq tex-command "lualatex -synctex=1")
+(setq dvi2-command "evince")
+(setq tex-pdfview-command "evince")
 
 (setq auto-mode-alist
       (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
