@@ -1,6 +1,7 @@
 (defvar installing-package-list
   '(
     auto-complete
+    markdown-mode
     helm
     magit
     ggtags
@@ -8,6 +9,7 @@
     yasnippet
     ddskk
     iedit
+    multi-term
     ))
 
 (let ((not-installed (loop for x in installing-package-list
