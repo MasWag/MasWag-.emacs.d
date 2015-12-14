@@ -10,6 +10,7 @@
     ddskk
     iedit
     multi-term
+    ac-ispell
     ))
 
 (let ((not-installed (loop for x in installing-package-list
