@@ -17,7 +17,7 @@
 (setq dvi2-command "evince")
 (setq tex-pdfview-command "evince")
 
-(load-file "~/.emacs.d/synctex-for-evince-yatex.el")
+;(load-file "~/.emacs.d/synctex-for-evince-yatex.el")
 
 (setq auto-mode-alist
       (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
