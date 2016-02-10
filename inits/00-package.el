@@ -6,6 +6,8 @@
     magit
     ggtags
     flycheck
+    haskell-mode
+    flycheck-haskell
     yasnippet
     ddskk
     iedit
