@@ -17,10 +17,12 @@
 (defun ac-cc-mode-setup ()
   (setq ac-clang-complete-executable "/usr/bin/clang-complete")
   (add-to-list 'ac-sources 'ac-source-clang-async)
-  (setq ac-clang-cflags '("-std=c++11"))
+  (setq ac-clang-cflags '("-std=c++11"))  
   (ac-clang-launch-completion-process))
 
 (add-hook 'c++-mode-hook 'ac-cc-mode-setup)
+(add-hook 'auto-complete-mode-hook 'ac-common-setup)
+(global-auto-complete-mode t)
 
 ;; .hをc++-modeにする
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
