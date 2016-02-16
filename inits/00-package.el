@@ -13,6 +13,9 @@
     iedit
     multi-term
     ac-ispell
+    haskell-mode
+    ac-haskell-process
+    flycheck-haskell
     ))
 
 (let ((not-installed (loop for x in installing-package-list
