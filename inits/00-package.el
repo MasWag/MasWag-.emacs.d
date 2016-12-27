@@ -16,6 +16,8 @@
     haskell-mode
     ac-haskell-process
     flycheck-haskell
+    web-mode
+    yatex
     ))
 
 (let ((not-installed (loop for x in installing-package-list
