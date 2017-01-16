@@ -49,3 +49,8 @@
 
 (global-set-key "\C-xc" 'compile)
 (setq-default indent-tabs-mode nil)
+
+(display-time-mode 1)
+
+;; skk
+(setq default-input-method "japanese-skk")

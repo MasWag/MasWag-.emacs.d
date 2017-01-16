@@ -53,3 +53,8 @@
   "Change focus to GHCi window after C-c C-l command"
   (other-window 1))
 (ad-activate 'inferior-haskell-load-file)
+
+;; Local settings
+(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+       (setq haskell-program-name "/usr/local/bin/stack ghci")
+       ))
