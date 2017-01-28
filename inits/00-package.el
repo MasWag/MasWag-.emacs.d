@@ -19,6 +19,7 @@
     web-mode
     yatex
     flyspell-correct-helm
+    magit-gitflow
     ))
 
 (let ((not-installed (loop for x in installing-package-list

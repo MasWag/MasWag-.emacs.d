@@ -43,3 +43,9 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:background "#000040" :foreground "#e0e0e0"))))
  '(cursor ((((class color) (background dark)) (:background "#00AA00")) (((class color) (background light)) (:background "#999999")) (t nil))))
+
+
+(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+       ;; shell
+       (setq shell-file-name "/usr/local/bin/bash")
+       ))
