@@ -16,10 +16,19 @@
     haskell-mode
     ac-haskell-process
     flycheck-haskell
-    web-mode
     yatex
     flyspell-correct-helm
     magit-gitflow
+    ;; For Cloud LaTeX
+    web-mode
+    ;;; TypeScript
+    typescript-mode
+    tide   
+    ;;; Rails
+    ruby-mode
+    ruby-block
+    ruby-electric
+    rinari
     ))
 
 (let ((not-installed (loop for x in installing-package-list
