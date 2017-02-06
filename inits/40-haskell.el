@@ -57,4 +57,7 @@
 ;; Local settings
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
        (setq haskell-program-name "/usr/local/bin/stack ghci")
+       )
+      ((equal (system-name) "reimu")
+       (setq haskell-program-name "/usr/bin/stack ghci")
        ))
