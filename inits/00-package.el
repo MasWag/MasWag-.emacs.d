@@ -19,6 +19,7 @@
     yatex
     flyspell-correct-helm
     magit-gitflow
+    use-package
     ;; For Cloud LaTeX
     web-mode
     ;;; TypeScript
@@ -29,6 +30,9 @@
     ruby-block
     ruby-electric
     rinari
+    ;; Rust
+    rust-mode
+    flycheck-rust
     ))
 
 (let ((not-installed (loop for x in installing-package-list
