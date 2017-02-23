@@ -20,6 +20,7 @@
     flyspell-correct-helm
     magit-gitflow
     use-package
+    matlab-mode
     ;; For Cloud LaTeX
     web-mode
     ;;; TypeScript
