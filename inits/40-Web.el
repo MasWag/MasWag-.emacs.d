@@ -1,6 +1,7 @@
 ;; WebMode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
@@ -10,7 +11,8 @@
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-  (setq web-mode-attr-indent-offset nil)
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-attr-value-indent-offset nil)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
@@ -30,8 +32,8 @@
             (flycheck-mode t)
             (setq flycheck-check-syntax-automatically '(save mode-enabled))
             (eldoc-mode t)
+            (setq typescript-indent-level 2)
             (company-mode-on)))
-
 
 ;; JSX
 (require 'web-mode)
@@ -39,4 +41,10 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (when (string-equal "jsx" (file-name-extension buffer-file-name))
-              (setup-tide-mode))))
+              (tide-setup))))
+
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "jsx")
+              (flycheck-add-mode 'javascript-eslint 'web-mode)
+              (flycheck-mode))))

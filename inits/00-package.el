@@ -31,6 +31,12 @@
     ruby-block
     ruby-electric
     rinari
+    rhtml-mode
+    ruby-tools
+    rbenv
+    rspec-mode
+    robe
+    enh-ruby-mode
     ;; Rust
     rust-mode
     flycheck-rust
