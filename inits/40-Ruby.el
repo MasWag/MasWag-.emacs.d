@@ -52,6 +52,10 @@
     (add-hook 'ruby-mode-hook 'rspec-mode)
     (add-hook 'ruby-mode-hook 'ggtags-mode)
     (add-hook 'ruby-mode-hook 'rbenv-use-corresponding)
+    (add-hook 'ruby-mode-hook
+              '(lambda ()
+                 (setq flycheck-checker 'ruby-rubocop)
+                 (flycheck-mode 1)))
 
     (setq ruby-deep-indent-paren nil))
   :bind (("C-M-h" . backward-kill-word))
