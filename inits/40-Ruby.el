@@ -5,7 +5,10 @@
 (require 'use-package)
 
 (use-package ruby-mode
+  :init
+  (require 'flycheck)
   :config
+  (setq flycheck-ruby-rubocop-executable "/usr/local/var/rbenv/shims/rubocop")
   (progn
     (use-package rbenv
       :init
