@@ -12,7 +12,7 @@
 (add-hook 'c-mode-hook 'my:flycheck-c-setup)
 (add-hook 'c++-mode-hook 'my:flycheck-c++-setup)
 
-(require 'auto-complete-clang-async)
+;; ;(require 'auto-complete-clang-async)
 
 (defun ac-cc-mode-setup ()
   (setq ac-clang-complete-executable "/usr/bin/clang-complete")
