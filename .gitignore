@@ -9,3 +9,4 @@ server
 *.elc
 games
 recentf
+local_settings.el

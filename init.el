@@ -35,7 +35,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode twittering-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process))))
+    (dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
