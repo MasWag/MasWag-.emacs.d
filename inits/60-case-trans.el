@@ -34,6 +34,34 @@
   (delete-region p1 p2)
   )
 
+(defun constr-region-from-symbol (func)
+  "FUNC is the function to apply symbol."
+  (let (bounds p1 p2)
+    (setq bounds (bounds-of-thing-at-point 'symbol))
+    (setq p1 (car bounds))
+    (setq p2 (cdr bounds))
+    (funcall func p1 p2)
+    )
+  )
+
+(defun lower-camelize-symbol()
+  "Make the current symbol lower camel case."
+  (interactive)
+  (constr-region-from-symbol #'lower-camelize-region)
+  )
+
+(defun upper-camelize-symbol ()
+  "Make the symbol upper camel (Pascal) case."
+  (interactive)
+  (constr-region-from-symbol #'upper-camelize-region)
+  )
+
+(defun snakize-symbol ()
+  "Make the symbol snake case."
+  (interactive)
+  (constr-region-from-symbol #'snakize-region)
+  )
+
 
 (provide '60-case-trans)
 ;;; 60-case-trans.el ends here
