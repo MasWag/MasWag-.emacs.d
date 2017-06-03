@@ -12,13 +12,13 @@
 (add-hook 'c-mode-hook 'my:flycheck-c-setup)
 (add-hook 'c++-mode-hook 'my:flycheck-c++-setup)
 
-;; ;(require 'auto-complete-clang-async)
-
 (defun ac-cc-mode-setup ()
-  (setq ac-clang-complete-executable "/usr/bin/clang-complete")
-  (add-to-list 'ac-sources 'ac-source-clang-async)
-  (setq ac-clang-cflags '("-std=c++11"))  
-  (ac-clang-launch-completion-process))
+  (setq ac-clang-complete-executable "clang-complete")
+  (when (executable-find ac-clang-complete-executable)
+    (require 'auto-complete-clang-async)
+    (add-to-list 'ac-sources 'ac-source-clang-async)
+    (setq ac-clang-cflags '("-std=c++11"))
+    (ac-clang-launch-completion-process)))
 
 (add-hook 'c++-mode-hook 'ac-cc-mode-setup)
 (add-hook 'auto-complete-mode-hook 'ac-common-setup)
@@ -27,4 +27,4 @@
 ;; .hをc++-modeにする
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
-(define-key c++-mode-map "\C-xc" 'compile)
+;; (define-key c++-mode-map "\C-xc" 'compile)

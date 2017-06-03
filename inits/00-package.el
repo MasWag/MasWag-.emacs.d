@@ -21,6 +21,8 @@
     magit-gitflow
     use-package
     matlab-mode
+    ;; C++
+    auto-complete-clang-async
     ;; For Cloud LaTeX
     web-mode
     ;;; TypeScript
