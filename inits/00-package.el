@@ -21,6 +21,8 @@
     use-package
     matlab-mode
     ;; C++
+    company-c-headers
+    cmake-ide
     ;; For Cloud LaTeX
     web-mode
     ;;; TypeScript
