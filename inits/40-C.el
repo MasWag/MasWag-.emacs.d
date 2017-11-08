@@ -12,17 +12,20 @@
 (add-hook 'c-mode-hook 'my:flycheck-c-setup)
 (add-hook 'c++-mode-hook 'my:flycheck-c++-setup)
 
-(defun ac-cc-mode-setup ()
-  (setq ac-clang-complete-executable "clang-complete")
-  (when (executable-find ac-clang-complete-executable)
-    (require 'auto-complete-clang-async)
-    (add-to-list 'ac-sources 'ac-source-clang-async)
-    (setq ac-clang-cflags '("-std=c++11"))
-    (ac-clang-launch-completion-process)))
+(delete 'complete-semantic company-backends)
+(add-to-list 'company-backends 'company-c-headers)
 
-(add-hook 'c++-mode-hook 'ac-cc-mode-setup)
-(add-hook 'auto-complete-mode-hook 'ac-common-setup)
-(global-auto-complete-mode t)
+(define-key c-mode-map [(tab)] 'company-complete)
+(define-key c++-mode-map [(tab)] 'company-complete)
+
+
+;;; CDE
+(require 'semantic)
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(semantic-mode 1)
+
+(semantic-add-system-include "/usr/include/boost" 'c++-mode)
 
 ;; .hをc++-modeにする
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
