@@ -6,7 +6,7 @@
 (defun my:flycheck-c-setup ()
   (setq flycheck-clang-language-standard "c99"))
 (defun my:flycheck-c++-setup ()
-  (setq flycheck-clang-language-standard "c++11"))
+  (setq flycheck-clang-language-standard "c++14"))
 
 
 (add-hook 'c-mode-hook 'my:flycheck-c-setup)
