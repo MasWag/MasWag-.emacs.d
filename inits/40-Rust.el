@@ -20,7 +20,7 @@
   :init
   ;;; racerのeldocサポートを使う
   (add-hook 'racer-mode-hook #'eldoc-mode)
-  (add-hook 'racer-mode-hook 'ac-racer-setup)
+  (add-hook 'racer-mode-hook #'company-mode)
   )
 
 (provide '40-Rust)
