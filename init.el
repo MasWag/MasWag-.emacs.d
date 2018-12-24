@@ -35,7 +35,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process))))
+    (ein csharp-mode rinari ruby-electric ruby-block graphviz-dot-mode dot-mode yasnippet-snippets pandoc-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -43,6 +43,15 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:background "#000040" :foreground "#e0e0e0"))))
  '(cursor ((((class color) (background dark)) (:background "#00AA00")) (((class color) (background light)) (:background "#999999")) (t nil))))
+
+;; satysfi
+(require 'satysfi)
+(add-to-list 'auto-mode-alist '("\\.saty$" . satysfi-mode))
+(add-to-list 'auto-mode-alist '("\\.satyh$" . satysfi-mode))
+(setq satysfi-command "satysfi")
+  ; set the command for typesetting (default: "satysfi -b")
+(setq satysfi-pdf-viewer-command "evince")
+  ; set the command for opening PDF files (default: "open")
 
 
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
