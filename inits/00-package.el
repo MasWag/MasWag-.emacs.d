@@ -14,7 +14,6 @@
     iedit
     multi-term
     haskell-mode
-    flycheck-haskell
     yatex
     flyspell-correct-helm
     magit-gitflow
@@ -24,24 +23,25 @@
     company-c-headers
     cmake-ide
     ;; For Cloud LaTeX
-    web-mode
+;    web-mode
     ;;; TypeScript
-    typescript-mode
-    tide
+;    typescript-mode
+;    tide
     ;;; Rails
-    ruby-mode
-    ruby-block
-    ruby-electric
-    rinari
-    rhtml-mode
-    ruby-tools
-    rbenv
-    rspec-mode
-    robe
-    enh-ruby-mode
+;    ruby-mode
+;    ruby-electric
+;    rinari
+;    rhtml-mode
+;    ruby-tools
+;    rbenv
+;    rspec-mode
+;    robe
+;    enh-ruby-mode
     ;; Rust
     rust-mode
     flycheck-rust
+    racer
+    company-racer
     ))
 
 (let ((not-installed (loop for x in installing-package-list
