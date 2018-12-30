@@ -20,8 +20,15 @@
     use-package
     matlab-mode
     ;; C++
-    company-c-headers
-    cmake-ide
+    irony
+    flycheck-irony
+    rtags
+    cmake-mode
+    company-irony
+    company-irony-c-header
+    irony-eldoc
+;    company-c-headers
+;    cmake-ide
     ;; For Cloud LaTeX
 ;    web-mode
     ;;; TypeScript
