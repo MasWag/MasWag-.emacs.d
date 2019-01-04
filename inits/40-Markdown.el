@@ -6,7 +6,11 @@
 
 (use-package markdown-mode
   :init
+  (require 'markdown-mode)
   :config
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends) '(company-ispell))))
   (progn
     (add-hook 'markdown-mode-hook 'pandoc-mode)
     (add-hook 'markdown-mode-hook 'flyspell-mode))

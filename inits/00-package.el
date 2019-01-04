@@ -49,6 +49,8 @@
     flycheck-rust
     racer
     company-racer
+    ;; Jupyter Notebook
+    ein
     ))
 
 (let ((not-installed (loop for x in installing-package-list

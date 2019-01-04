@@ -36,7 +36,17 @@
  '(irony-additional-clang-options (quote ("-std=c++14")))
  '(package-selected-packages
    (quote
-    (irony-eldoc ein csharp-mode rinari ruby-electric ruby-block graphviz-dot-mode dot-mode yasnippet-snippets pandoc-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process))))
+    (irony-eldoc ein csharp-mode rinari ruby-electric ruby-block graphviz-dot-mode dot-mode yasnippet-snippets pandoc-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
+ '(graphviz-dot-view-command "dot -Tpng %s -O")
+ '(package-selected-packages
+   (quote
+    (gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
+ '(safe-local-variable-values
+   (quote
+    ((eval setq flycheck-python-mypy-ini
+           (concat default-directory "mypy.ini"))
+     (flycheck-python-mypy-ini concat default-directory "mypy.ini")))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,3 +69,27 @@
        ;; shell
        (setq shell-file-name "/usr/local/bin/bash")
        ))
+
+(require 'use-package)
+(use-package satysfi
+  :mode (("\\.saty$" . satysfi-mode)
+         ("\\.satyh$" . satysfi-mode))
+  :config 
+  (setq satysfi-command "satysfi")
+  (setq satysfi-pdf-viewer-command "open -a Skim"))
+
+(require 'flycheck)
+
+(flycheck-define-checker satysfi-type
+  "A SATySFi type checker"
+  :command ("satysfi" "-t" source-inplace)
+  :error-patterns
+  ((error line-start
+            "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n" (message) line-end)
+   (error line-start
+            "! [" (message) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline)  line-end))
+  :modes (satysfi-mode))
+
+(setq flycheck-satysfi-type-executable "/usr/local/bin/satysfi")
+
+(add-to-list 'flycheck-checkers 'satysfi-type)

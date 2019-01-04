@@ -19,6 +19,7 @@
           '(lambda ()
              (reftex-mode 1)
              (auto-fill-mode 0)
+             (set (make-local-variable 'company-backends) '(company-ispell))
              (define-key reftex-mode-map (concat YaTeX-prefix ">") 'YaTeX-comment-region)
              (define-key reftex-mode-map (concat YaTeX-prefix "<") 'YaTeX-uncomment-region)))
 
