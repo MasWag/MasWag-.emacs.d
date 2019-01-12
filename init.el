@@ -33,6 +33,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" default)))
+ '(irony-additional-clang-options (quote ("-std=c++14")))
+ '(package-selected-packages
+   (quote
+    (irony-eldoc ein csharp-mode rinari ruby-electric ruby-block graphviz-dot-mode dot-mode yasnippet-snippets pandoc-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
  '(graphviz-dot-view-command "dot -Tpng %s -O")
  '(irony-additional-clang-options (quote ("-std=c++14")))
  '(package-selected-packages
