@@ -4,6 +4,9 @@
 ;;; Code:
 (provide 'local_settings)
 
-(load-file "/usr/local/share/nusmv/contrib/nusmv-mode.el")
+(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+       (load-file "/usr/local/share/nusmv/contrib/nusmv-mode.el"))
+      ((equal (system-name) "reimu")
+       (load-file "/opt/nusmv/share/nusmv/contrib/nusmv-mode.el")))
 
 ;;; local_settings.el ends here
