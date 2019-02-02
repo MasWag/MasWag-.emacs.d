@@ -19,6 +19,7 @@
     magit-gitflow
     use-package
     matlab-mode
+    ace-jump-mode
     ;; C++
     irony
     flycheck-irony
