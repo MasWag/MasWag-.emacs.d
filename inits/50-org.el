@@ -8,6 +8,8 @@
 (setq org-capture-templates
       '(("n" "Note" entry (file+headline "~/wiki/notes.org" "Notes")
          "* %?\nEntered on %U\n %i\n %a")
+        ("r" "Research Note" entry (file+headline "~/wiki/Research/research_notes.org" "Research Notes")
+         "* %?\nEntered on %U\n %i\n %a")
         ))
 
 ; メモをC-M-^一発で見るための設定
