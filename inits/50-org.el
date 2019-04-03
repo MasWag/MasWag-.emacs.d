@@ -25,5 +25,5 @@
 (global-set-key (kbd "C-M-^") '(lambda () (interactive)
                                  (show-org-buffer "notes.org")))
 
-(setq org-agenda-files '("~/wiki" "~/wiki/Diary" "~/wiki/Research"))
+(setq org-agenda-files '("~/wiki/" "~/wiki/Diary/" "~/wiki/Research/"))
 (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
