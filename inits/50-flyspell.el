@@ -6,4 +6,4 @@
  (lambda (hook)
    (add-hook hook
              '(lambda () (flyspell-mode 1))))
- '(markdown-mode-hook yatex-mode-hook))
+ '(markdown-mode-hook yatex-mode-hook org-mode-hook))
