@@ -36,16 +36,19 @@
  '(custom-safe-themes
    (quote
     ("4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" default)))
+ '(display-time-mode t)
  '(graphviz-dot-view-command "dot -Tpng %s -O")
  '(irony-additional-clang-options (quote ("-std=c++14")))
  '(package-selected-packages
    (quote
-    (irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
+    (ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
  '(safe-local-variable-values
    (quote
     ((eval setq flycheck-python-mypy-ini
            (concat default-directory "mypy.ini"))
-     (flycheck-python-mypy-ini concat default-directory "mypy.ini")))))
+     (flycheck-python-mypy-ini concat default-directory "mypy.ini"))))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
