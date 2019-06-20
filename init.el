@@ -55,28 +55,24 @@
  '(default ((t (:background "#000040" :foreground "#e0e0e0"))))
  '(cursor ((((class color) (background dark)) (:background "#00AA00")) (((class color) (background light)) (:background "#999999")) (t nil))))
 
-;; satysfi
-(require 'satysfi)
-(add-to-list 'auto-mode-alist '("\\.saty$" . satysfi-mode))
-(add-to-list 'auto-mode-alist '("\\.satyh$" . satysfi-mode))
-(setq satysfi-command "satysfi")
-  ; set the command for typesetting (default: "satysfi -b")
-(setq satysfi-pdf-viewer-command "evince")
-  ; set the command for opening PDF files (default: "open")
-
-
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
        ;; shell
        (setq shell-file-name "/usr/local/bin/bash")
        ))
 
+;; satysfi
 (require 'use-package)
 (use-package satysfi
   :mode (("\\.saty$" . satysfi-mode)
          ("\\.satyh$" . satysfi-mode))
-  :config 
+  :config
   (setq satysfi-command "satysfi")
-  (setq satysfi-pdf-viewer-command "open -a Skim"))
+  (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+         (setq satysfi-pdf-viewer-command "open -a Skim")
+         )
+        ((equal (system-name) "reimu")
+         (setq satysfi-pdf-viewer-command "evince")
+         )))
 
 (require 'flycheck)
 
@@ -85,11 +81,16 @@
   :command ("satysfi" "-t" source-inplace)
   :error-patterns
   ((error line-start
-            "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n" (message) line-end)
-   (error line-start
-            "! [" (message) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline)  line-end))
+          "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
+          (message (one-or-more not-newline)
+                   (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
   :modes (satysfi-mode))
 
-(setq flycheck-satysfi-type-executable "/Users/calros/.opam/4.06.0/bin/satysfi")
+(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+       (setq flycheck-satysfi-type-executable "/usr/local/bin/satysfi")
+       )
+      ((equal (system-name) "reimu")
+       (setq flycheck-satysfi-type-executable "/home/calros/.opam/4.06.0/bin/satysfi")
+       ))
 
 (add-to-list 'flycheck-checkers 'satysfi-type)
