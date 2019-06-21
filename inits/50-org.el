@@ -11,7 +11,7 @@
         ("r" "Research Note" entry (file+headline "~/wiki/Research/research_notes.org" "Research Notes")
          "* %?\nEntered on %U\n %i\n %a")
         ("c" "CyVeriA Lab Note" entry (file+headline "~/wiki/Research/cyveria.org" "Lab Notebook")
-         "* TODO %?\nEntered on %U\n" :prepend t)
+         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
         ))
 
 ; メモをC-M-^一発で見るための設定
@@ -28,7 +28,8 @@
                                  (show-org-buffer "notes.org")))
 
 (setq org-agenda-files '("~/wiki/" "~/wiki/Diary/" "~/wiki/Research/"))
-(setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+(setq org-refile-targets (quote ((nil :maxlevel . 2)
+                                 (org-agenda-files :maxlevel . 3))))
 
 (use-package org-mode
   :bind (("C-c l" . org-store-link))
