@@ -20,6 +20,7 @@
     use-package
     matlab-mode
     ace-jump-mode
+    ace-window
     ;; C++
     irony
     flycheck-irony

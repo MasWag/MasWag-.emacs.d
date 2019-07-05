@@ -41,7 +41,7 @@
  '(irony-additional-clang-options (quote ("-std=c++14")))
  '(package-selected-packages
    (quote
-    (ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
+    (ace-window company-irony-c-header ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
  '(safe-local-variable-values
    (quote
     ((eval setq flycheck-python-mypy-ini
@@ -56,6 +56,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background "#000040" :foreground "#e0e0e0"))))
+ '(aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
  '(cursor ((((class color) (background dark)) (:background "#00AA00")) (((class color) (background light)) (:background "#999999")) (t nil))))
 
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
