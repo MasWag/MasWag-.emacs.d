@@ -21,6 +21,7 @@
     matlab-mode
     ace-jump-mode
     ace-window
+    biblio
     ;; C++
     irony
     flycheck-irony
