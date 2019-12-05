@@ -8,6 +8,9 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
+;; https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; Initialize
 (package-initialize)
 
@@ -39,9 +42,12 @@
  '(display-time-mode t)
  '(graphviz-dot-view-command "dot -Tpng %s -O")
  '(irony-additional-clang-options (quote ("-std=c++14")))
+ '(org-agenda-files
+   (quote
+    ("/Users/calros/wiki/Research/Talks.org" "/Users/calros/wiki/Research/Automata-Based_Monitoring_with_Freezing_Operators.org" "/Users/calros/wiki/Research/DataMonitor.org" "/Users/calros/wiki/Research/DistributedFilter4PM.org" "/Users/calros/wiki/Research/Falsification_of_CPS_via_Automata_Learning.org" "/Users/calros/wiki/Research/MitsubishiMonitoring.org" "/Users/calros/wiki/Research/OnlineQuantitativeTimedPatternMatching.org" "/Users/calros/wiki/Research/RNN2WFA.org" "/Users/calros/wiki/Research/ResearchIdeas.org" "/Users/calros/wiki/Research/Reviews.org" "/Users/calros/wiki/Research/RobBBC.org" "/Users/calros/wiki/Research/cyveria.org" "/Users/calros/wiki/Research/demo_link.org" "/Users/calros/wiki/Research/largest_mutation_problem.org" "/Users/calros/wiki/Research/research_notes.org" "/Users/calros/wiki/Research/seasonaly_review.org" "/Users/calros/wiki/Research/weekly_review.org" "/Users/calros/wiki/Getting Started with Orgzly.org" "/Users/calros/wiki/keiko.org" "/Users/calros/wiki/mobile_notes.org" "/Users/calros/wiki/notes.org" "/Users/calros/wiki/pairs.org" "/Users/calros/wiki/the_art_of_war.org")) t)
  '(package-selected-packages
    (quote
-    (biblio ace-window company-irony-c-header ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-ispell ac-haskell-process)))
+    (pandoc-mode company-ansible company-bibtex company-shell company-lsp spinner lsp-haskell lsp-mode lsp-ui company-ghc mmm-mode ein-mumamo todoist biblio ace-window company-irony-c-header ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-haskell-process)))
  '(safe-local-variable-values
    (quote
     ((eval setq flycheck-python-mypy-ini
@@ -70,12 +76,13 @@
   :mode (("\\.saty$" . satysfi-mode)
          ("\\.satyh$" . satysfi-mode))
   :config
-  (setq satysfi-command "satysfi")
   (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
          (setq satysfi-pdf-viewer-command "open -a Skim")
+         (setq satysfi-command "/Users/calros/bin/satysfi")
          )
         ((equal (system-name) "reimu")
          (setq satysfi-pdf-viewer-command "evince")
+         (setq satysfi-command "satysfi")
          )))
 
 (require 'flycheck)
@@ -91,7 +98,7 @@
   :modes (satysfi-mode))
 
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
-       (setq flycheck-satysfi-type-executable "/usr/local/bin/satysfi")
+       (setq flycheck-satysfi-type-executable "/Users/calros/bin/satysfi")
        )
       ((equal (system-name) "reimu")
        (setq flycheck-satysfi-type-executable "/home/calros/.opam/4.06.0/bin/satysfi")

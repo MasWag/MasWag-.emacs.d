@@ -34,10 +34,24 @@
   (define-key flycheck-mode-map (kbd "C-M-p") 'flycheck-previous-error)
   (add-hook 'c-mode-common-hook 'flycheck-mode))
 
-(eval-after-load "flycheck"
-  '(progn
-     (when (locate-library "flycheck-irony")
-       (flycheck-irony-setup))))
+;; flycheck-mode
+;; (eval-after-load "flycheck"
+;;   '(progn
+;;      (when (locate-library "flycheck-irony")
+;;        (flycheck-irony-setup))))
+
+(add-hook 'c++-mode-hook 'flycheck-mode)
+(add-hook 'c-mode-hook 'flycheck-mode)
+(eval-after-load 'flycheck
+'(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+;; eldoc-mode
+(add-hook 'irony-mode-hook 'irony-eldoc)
+
+(use-package bison-mode
+  :init
+  (require 'bison-mode)
+  :mode (("\\.yy$" . bison-mode)))
 
 ;; (add-hook 'c-mode-hook 'my:flycheck-c-setup)
 ;; (add-hook 'c++-mode-hook 'my:flycheck-c++-setup)

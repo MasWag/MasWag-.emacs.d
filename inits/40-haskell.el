@@ -4,20 +4,34 @@
 ;;; Code:
 (require 'use-package)
 
+;; https://github.com/emacs-lsp/lsp-haskell/issues/47
+(setenv "PATH" (concat (getenv "PATH") ":/Users/calros/.local/bin:/home/calros/.local/bin"))
+
+
 (use-package haskell-mode
   :init
   (require 'flycheck)
+  (require 'lsp-haskell)
+  (require 'lsp-ui)
+  (require 'lsp-haskell)
   (progn
     (setq haskell-mode-hook nil)
+    (add-hook 'haskell-mode-hook #'lsp)
     (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
     (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
-    ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-    ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-    ;; (add-hook 'haskell-mode-hook 'font-lock-mode)
-    ;; (add-hook 'haskell-mode-hook 'imenu-add-menubar-index)
+    (add-hook 'haskell-mode-hook #'lsp-haskell-enable)
+    (add-hook 'haskell-mode-hook 'flycheck-mode)
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+    (add-hook 'haskell-mode-hook 'font-lock-mode)
+    (add-hook 'haskell-mode-hook 'imenu-add-menubar-index)
     )
 
+  :hook
+  (haskell-mode . lsp-mode)
   :config
+  (setq lsp-haskell-process-path-hie "~/.local/bin/hie-wrapper")
 
   :bind (("C-," . haskell-move-nested-left)
          ("C-." . haskell-move-nested-right)

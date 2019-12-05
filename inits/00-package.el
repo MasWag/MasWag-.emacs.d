@@ -3,12 +3,11 @@
     ;; Common
     company
     markdown-mode
+    pandoc-mode
     helm
     magit
     ggtags
     flycheck
-    haskell-mode
-    flycheck-haskell
     yasnippet
     ddskk
     iedit
@@ -22,6 +21,9 @@
     ace-jump-mode
     ace-window
     biblio
+    ;; lsp-mode
+    lsp-mode
+    lsp-ui
     ;; C++
     irony
     flycheck-irony
@@ -54,6 +56,10 @@
     company-racer
     ;; Jupyter Notebook
     ein
+    ;; Haskell
+    haskell-mode
+    flycheck-haskell
+    lsp-haskell
     ))
 
 (let ((not-installed (loop for x in installing-package-list

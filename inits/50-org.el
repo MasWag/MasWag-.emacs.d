@@ -10,8 +10,11 @@
          "* %?\nEntered on %U\n %i\n %a")
         ("r" "Research Note" entry (file+headline "~/wiki/Research/research_notes.org" "Research Notes")
          "* %?\nEntered on %U\n %i\n %a")
-        ("c" "CyVeriA Lab Note" entry (file+headline "~/wiki/Research/cyveria.org" "Lab Notebook")
-         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
+        ;; ("c" "CyVeriA" entry (file "~/wiki/Research/cyveria.org")
+        ;;  "* %?\nEntered on %U" )
+;         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
+        ("w" "Weely Review" entry (file "~/wiki/Research/weekly_review.org")
+         "* %?\nEntered on %U" )
         ))
 
 ; メモをC-M-^一発で見るための設定
@@ -26,11 +29,21 @@
     (find-file (concat "~/wiki/" file))))
 (global-set-key (kbd "C-M-^") '(lambda () (interactive)
                                  (show-org-buffer "notes.org")))
-
-(setq org-agenda-files '("~/wiki/" "~/wiki/Diary/" "~/wiki/Research/"))
+; cf. https://www.emacswiki.org/emacs/OrgMode#toc21
+(defun mhatta/org-buffer-files ()
+  "Return list of opened Org mode buffer files"
+  (mapcar (function buffer-file-name)
+      (org-buffer-list 'files)))
+(setq org-agenda-files '("~/wiki/Research/" "~/wiki/"))
 (setq org-refile-targets (quote ((nil :maxlevel . 2)
-                                 (org-agenda-files :maxlevel . 3))))
+                                 (org-agenda-files :maxlevel . 3)
+;                                 (mhatta/org-buffer-files :maxlevel . 2)
+                                 )))
 
 (use-package org-mode
   :bind (("C-c l" . org-store-link))
+  :config
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (add-to-list 'company-backends 'company-ispell)))
   )

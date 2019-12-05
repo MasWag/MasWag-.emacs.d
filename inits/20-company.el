@@ -1,4 +1,5 @@
-
+;;; 20-company --- Setting for company
+;;; Commentary:
 ;;; Code:
 
 (require 'company)
@@ -8,6 +9,8 @@
 (setq company-idle-delay 0) ; デフォルトは0.5
 (setq company-minimum-prefix-length 2) ; デフォルトは4
 (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+
+;; (add-to-list 'company-backends 'company-ghc)
 
 
 ;;; Color
@@ -43,6 +46,19 @@
 
 ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+
+;; use company-ispell
+;; "text-mode" is a major mode for editing files of text in a human language"
+;; most major modes for non-programmers inherit from text-mode
+(defun text-mode-hook-setup ()
+  ;; make `company-backends' local is critcal
+  ;; or else, you will have completion in every major mode, that's very annoying!
+  (make-local-variable 'company-backends)
+
+  ;; company-ispell is the plugin to complete words
+  (add-to-list 'company-backends 'company-ispell))
+
+(add-hook 'text-mode-hook 'text-mode-hook-setup)
 
 ;;; Quick help
 (company-quickhelp-mode +1)
