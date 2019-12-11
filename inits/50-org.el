@@ -13,6 +13,9 @@
         ;; ("c" "CyVeriA" entry (file "~/wiki/Research/cyveria.org")
         ;;  "* %?\nEntered on %U" )
 ;         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
+        ("h" "HyMon" entry (file "~/parametric_HA_monitor/meeting_note.txt")
+         "* %<%Y-%m-%d %a>\nEntered on %U\n** Masaki %?\n\n** Etienne" 
+         :prepend t)
         ("w" "Weely Review" entry (file "~/wiki/Research/weekly_review.org")
          "* %?\nEntered on %U" )
         ))
@@ -34,7 +37,7 @@
   "Return list of opened Org mode buffer files"
   (mapcar (function buffer-file-name)
       (org-buffer-list 'files)))
-(setq org-agenda-files '("~/wiki/Research/" "~/wiki/"))
+(setq org-agenda-files '("~/wiki/Research/" "~/wiki/" "~/parametric_HA_monitor/meeting_note.txt"))
 (setq org-refile-targets (quote ((nil :maxlevel . 2)
                                  (org-agenda-files :maxlevel . 3)
 ;                                 (mhatta/org-buffer-files :maxlevel . 2)
