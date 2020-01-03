@@ -1,4 +1,4 @@
-(defvar installing-package-list
+(setq installing-package-list
   '(
     ;; Common
     company
@@ -24,13 +24,15 @@
     ;; lsp-mode
     lsp-mode
     lsp-ui
+    ;; Org-mode
+    uimage
     ;; C++
     irony
     flycheck-irony
     rtags
     cmake-mode
     company-irony
-    company-irony-c-header
+    company-irony-c-headers
     irony-eldoc
 ;    company-c-headers
 ;    cmake-ide
@@ -60,8 +62,11 @@
     haskell-mode
     flycheck-haskell
     lsp-haskell
+    ;; RDF
+    ttl-mode
     ))
 
+(require 'cl)
 (let ((not-installed (loop for x in installing-package-list
 			   when (not (package-installed-p x))
 			   collect x)))
