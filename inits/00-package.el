@@ -64,6 +64,10 @@
     lsp-haskell
     ;; RDF
     ttl-mode
+    ;; TerraForm
+    company-terraform
+    terraform-doc
+    terraform-mode
     ))
 
 (require 'cl)
