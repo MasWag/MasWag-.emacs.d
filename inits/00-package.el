@@ -24,6 +24,7 @@
     ;; lsp-mode
     lsp-mode
     lsp-ui
+    company-lsp
     ;; Org-mode
     uimage
     ;; C++
