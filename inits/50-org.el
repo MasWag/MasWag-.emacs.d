@@ -43,7 +43,7 @@
 ;                                 (mhatta/org-buffer-files :maxlevel . 2)
                                  )))
 
-(use-package org-mode
+(use-package org
   :config
   (add-hook 'org-mode-hook
             (lambda ()
