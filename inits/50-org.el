@@ -13,9 +13,11 @@
         ;; ("c" "CyVeriA" entry (file "~/wiki/Research/cyveria.org")
         ;;  "* %?\nEntered on %U" )
 ;         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
-        ("h" "HyMon" entry (file "~/parametric_HA_monitor/meeting_note.txt")
+        ("h" "HAMoni" entry (file "~/parametric_HA_monitor/meeting_note.txt")
          "* %<%Y-%m-%d %a>\nEntered on %U\n** Masaki %?\n\n** Etienne" 
          :prepend t)
+        ("b" "Bookmark" entry (file+headline "~/wiki/Bookmark.org" "Bookmarks")
+         "* %?\nEntered on %U\n %i\n %a")
         ("w" "Weely Review" entry (file "~/wiki/Research/weekly_review.org")
          "* %?\nEntered on %U" )
         ))
