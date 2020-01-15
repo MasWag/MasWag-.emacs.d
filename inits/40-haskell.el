@@ -14,8 +14,7 @@
   (require 'lsp-ui)
   (require 'lsp)
   (require 'lsp-mode)
-  ;; I do not know why but lsp-haskell does not work now ...
-  ;; (require 'lsp-haskell)
+  (require 'lsp-haskell)
   (setq haskell-mode-hook nil)
   (add-hook 'haskell-mode-hook #'lsp)
   (add-hook 'haskell-mode-hook #'haskell-indentation-mode)
