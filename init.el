@@ -44,10 +44,10 @@
  '(irony-additional-clang-options (quote ("-std=c++14")))
  '(org-agenda-files
    (quote
-    ("/Users/calros/wiki/Research/Talks.org" "/Users/calros/wiki/Research/Automata-Based_Monitoring_with_Freezing_Operators.org" "/Users/calros/wiki/Research/DataMonitor.org" "/Users/calros/wiki/Research/DistributedFilter4PM.org" "/Users/calros/wiki/Research/Falsification_of_CPS_via_Automata_Learning.org" "/Users/calros/wiki/Research/MitsubishiMonitoring.org" "/Users/calros/wiki/Research/OnlineQuantitativeTimedPatternMatching.org" "/Users/calros/wiki/Research/RNN2WFA.org" "/Users/calros/wiki/Research/ResearchIdeas.org" "/Users/calros/wiki/Research/Reviews.org" "/Users/calros/wiki/Research/RobBBC.org" "/Users/calros/wiki/Research/cyveria.org" "/Users/calros/wiki/Research/demo_link.org" "/Users/calros/wiki/Research/largest_mutation_problem.org" "/Users/calros/wiki/Research/research_notes.org" "/Users/calros/wiki/Research/seasonaly_review.org" "/Users/calros/wiki/Research/weekly_review.org" "/Users/calros/wiki/Getting Started with Orgzly.org" "/Users/calros/wiki/keiko.org" "/Users/calros/wiki/mobile_notes.org" "/Users/calros/wiki/notes.org" "/Users/calros/wiki/pairs.org" "/Users/calros/wiki/the_art_of_war.org")) t)
+    ("/Users/calros/wiki/Research/Talks.org" "/Users/calros/wiki/Research/Automata-Based_Monitoring_with_Freezing_Operators.org" "/Users/calros/wiki/Research/DataMonitor.org" "/Users/calros/wiki/Research/DistributedFilter4PM.org" "/Users/calros/wiki/Research/Falsification_of_CPS_via_Automata_Learning.org" "/Users/calros/wiki/Research/MitsubishiMonitoring.org" "/Users/calros/wiki/Research/OnlineQuantitativeTimedPatternMatching.org" "/Users/calros/wiki/Research/RNN2WFA.org" "/Users/calros/wiki/Research/ResearchIdeas.org" "/Users/calros/wiki/Research/Reviews.org" "/Users/calros/wiki/Research/RobBBC.org" "/Users/calros/wiki/Research/cyveria.org" "/Users/calros/wiki/Research/demo_link.org" "/Users/calros/wiki/Research/largest_mutation_problem.org" "/Users/calros/wiki/Research/research_notes.org" "/Users/calros/wiki/Research/seasonaly_review.org" "/Users/calros/wiki/Research/weekly_review.org" "/Users/calros/wiki/Getting Started with Orgzly.org" "/Users/calros/wiki/keiko.org" "/Users/calros/wiki/mobile_notes.org" "/Users/calros/wiki/notes.org" "/Users/calros/wiki/pairs.org" "/Users/calros/wiki/the_art_of_war.org")))
  '(package-selected-packages
    (quote
-    (w3m pandoc-mode company-ansible company-bibtex company-shell company-lsp spinner lsp-haskell lsp-mode lsp-ui company-ghc mmm-mode ein-mumamo todoist biblio ace-window company-irony-c-header ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-haskell-process)))
+    (org-download htmlize org-tree-slide z3-mode gitconfig-mode gitignore-mode json-mode ob-async company-terraform terraform-doc terraform-mode w3m pandoc-mode company-ansible company-bibtex company-shell company-lsp spinner lsp-haskell lsp-mode lsp-ui company-ghc mmm-mode ein-mumamo todoist biblio ace-window company-irony-c-header ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-haskell-process)))
  '(safe-local-variable-values
    (quote
     ((eval setq flycheck-python-mypy-ini
@@ -69,39 +69,3 @@
        ;; shell
        (setq shell-file-name "/usr/local/bin/bash")
        ))
-
-;; satysfi
-(require 'use-package)
-(use-package satysfi
-  :mode (("\\.saty$" . satysfi-mode)
-         ("\\.satyh$" . satysfi-mode))
-  :config
-  (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
-         (setq satysfi-pdf-viewer-command "open -a Skim")
-         (setq satysfi-command "/Users/calros/bin/satysfi")
-         )
-        ((equal (system-name) "reimu")
-         (setq satysfi-pdf-viewer-command "evince")
-         (setq satysfi-command "satysfi")
-         )))
-
-(require 'flycheck)
-
-(flycheck-define-checker satysfi-type
-  "A SATySFi type checker"
-  :command ("satysfi" "-t" source-inplace)
-  :error-patterns
-  ((error line-start
-          "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
-          (message (one-or-more not-newline)
-                   (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
-  :modes (satysfi-mode))
-
-(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
-       (setq flycheck-satysfi-type-executable "/Users/calros/bin/satysfi")
-       )
-      ((equal (system-name) "reimu")
-       (setq flycheck-satysfi-type-executable "/home/calros/.opam/4.06.0/bin/satysfi")
-       ))
-
-(add-to-list 'flycheck-checkers 'satysfi-type)
