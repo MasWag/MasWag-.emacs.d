@@ -16,8 +16,10 @@
         ("h" "HAMoni" entry (file "~/parametric_HA_monitor/meeting_note.txt")
          "* %<%Y-%m-%d %a>\nEntered on %U\n** Masaki %?\n\n** Etienne" 
          :prepend t)
-        ("b" "Bookmark" entry (file+headline "~/wiki/Bookmark.org" "Bookmarks")
-         "* %?\nEntered on %U\n %i\n %a")
+        ("b" "Bookmark" entry (file+headline "~/wiki/Bookmark.org" "InBox")
+         "** %?\nEntered on %U\n %i\n %a")
+        ("t" "Tools" entry (file+olp "~/wiki/notes.org" "Nice Tools" "InBox")
+         "** %?\nEntered on %U\n %i\n %a")
         ("w" "Weely Review" entry (file "~/wiki/Research/weekly_review.org")
          "* %?\nEntered on %U" )
         ))
