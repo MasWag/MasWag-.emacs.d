@@ -18,6 +18,9 @@
     magit-gitflow
     use-package
     matlab-mode
+    ; Jump
+    avy
+    avy-migemo
     ace-jump-mode
     ace-window
     biblio
