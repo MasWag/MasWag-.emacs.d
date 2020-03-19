@@ -52,6 +52,6 @@
   (add-hook 'org-mode-hook
             (lambda ()
               (define-key org-mode-map (kbd "C-c l") 'org-store-link)
-              (define-key org-mode-map (kbd "C-c C-g") 'org-mark-ring-goto)
+              (define-key org-mode-map (kbd "C-c g") 'org-mark-ring-goto)
               (add-to-list 'company-backends 'company-ispell)))
   )
