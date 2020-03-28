@@ -12,7 +12,6 @@
   :init
   (require 'flycheck)
   (require 'lsp-ui)
-  (require 'lsp)
   (require 'lsp-mode)
   (require 'lsp-haskell)
   (setq haskell-mode-hook nil)

@@ -5,7 +5,7 @@
 
 ;; https://github.com/emacs-lsp/lsp-haskell/issues/47
 (setenv "PATH" (concat (getenv "PATH") ":/Users/calros/.local/bin:/home/calros/.local/bin"))
-(use-package lsp
+(use-package lsp-mode
   :commands lsp
   :custom
   (lsp-prefer-flymake nil)
