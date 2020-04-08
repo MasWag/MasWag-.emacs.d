@@ -22,6 +22,8 @@
          "** %?\nEntered on %U\n %i\n %a")
         ("w" "Weely Review" entry (file "~/wiki/Research/weekly_review.org")
          "* %?\nEntered on %U" )
+        ("p" "PhD Thesis" entry (file+headline "~/phd_thesis/notes.org" "Notes")
+         "* %?\nEntered on %U" )
         ))
 
 ; メモをC-M-^一発で見るための設定
