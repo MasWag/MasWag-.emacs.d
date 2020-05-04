@@ -23,6 +23,14 @@
              (define-key reftex-mode-map (concat YaTeX-prefix ">") 'YaTeX-comment-region)
              (define-key reftex-mode-map (concat YaTeX-prefix "<") 'YaTeX-uncomment-region)))
 
+;; flycheck
+(use-package flycheck
+  :ensure t
+  :hook (after-init . global-flycheck-mode)
+  :config
+  (flycheck-add-mode 'tex-chktex 'yatex-mode)
+  (flycheck-add-mode 'tex-lacheck 'yatex-mode))
+
 ;; Local settings
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
        (setenv "PATH"
