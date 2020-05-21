@@ -29,7 +29,10 @@
   :hook (after-init . global-flycheck-mode)
   :config
   (flycheck-add-mode 'tex-chktex 'yatex-mode)
-  (flycheck-add-mode 'tex-lacheck 'yatex-mode))
+  (flycheck-add-mode 'tex-lacheck 'yatex-mode)
+  (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+         (setq flycheck-tex-chktex-executable "/Library/TeX/texbin/chktex")
+  )))
 
 ;; Local settings
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
