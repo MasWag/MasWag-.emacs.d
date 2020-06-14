@@ -63,5 +63,12 @@
 ;;; Quick help
 (company-quickhelp-mode +1)
 
+;; Use company-tabnine
+(use-package company-tabnine 
+  :init
+  (add-to-list 'company-backends #'company-tabnine)
+  :ensure t
+  )
+
 (provide '20-company)
 ;;; 20-company.el ends here
