@@ -1,3 +1,6 @@
+;;; Package -- Summary
+;;; Commentary:
+
 (require 'flycheck)
 (require 'vhdl-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -23,7 +26,17 @@
              (flycheck-mode 1)))
 (flycheck-set-checker-executable 'tex-chktex)
 
+;; Flycheck Grammarly
+(use-package flycheck-grammarly
+  :config
+  (flycheck-add-mode 'grammarly-checker 'text-mode)
+  :ensure t
+  )
+
 ;; (add-hook 'yatex-mode-hook
 ;;           '(lambda ()
 ;;              (setq flycheck-checker 'tex-chktex)
 ;;              (flycheck-mode 1)))
+
+(provide '50-flycheck)
+;;; 50-flycheck.el ends here
