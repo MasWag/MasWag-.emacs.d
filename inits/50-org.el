@@ -56,4 +56,8 @@
               (define-key org-mode-map (kbd "C-c l") 'org-store-link)
               (define-key org-mode-map (kbd "C-c g") 'org-mark-ring-goto)
               (add-to-list 'company-backends 'company-ispell)))
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages
+                               '(
+                                 (shell . t)
+                                 )
+                               ))
