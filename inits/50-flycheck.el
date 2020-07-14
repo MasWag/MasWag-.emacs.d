@@ -27,11 +27,11 @@
 (flycheck-set-checker-executable 'tex-chktex)
 
 ;; Flycheck Grammarly
-(use-package flycheck-grammarly
-  :config
-  (flycheck-add-mode 'grammarly-checker 'text-mode)
-  :ensure t
-  )
+;; (use-package flycheck-grammarly
+;;   :config
+;;   (flycheck-add-mode 'grammarly-checker 'text-mode)
+;;   :ensure t
+;;   )
 
 ;; (add-hook 'yatex-mode-hook
 ;;           '(lambda ()
