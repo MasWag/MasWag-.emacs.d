@@ -12,7 +12,7 @@
   :config
   (setq-default rust-format-on-save t)
   (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
-         (setq racer-rust-src-path "~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")))
+         (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")))
   )
 
 (use-package racer
