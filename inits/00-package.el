@@ -30,6 +30,7 @@
     company-lsp
     ;; Org-mode
     uimage
+    ox-pandoc
     ;; C++
     irony
     flycheck-irony
