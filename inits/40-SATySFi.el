@@ -26,11 +26,6 @@
                      (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
     :modes (satysfi-mode))
 
-  (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
-         (setq flycheck-satysfi-type-executable "/Users/calros/bin/satysfi")
-         )
-        ((equal (system-name) "reimu")
-         (setq flycheck-satysfi-type-executable "/home/calros/.opam/4.06.0/bin/satysfi")
-         ))
+  (setq flycheck-satysfi-type-executable satysfi-command)
 
   (add-to-list 'flycheck-checkers 'satysfi-type))
