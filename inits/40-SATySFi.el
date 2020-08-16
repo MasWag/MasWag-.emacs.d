@@ -2,7 +2,8 @@
 (require 'use-package)
 (use-package satysfi
   :mode (("\\.saty$" . satysfi-mode)
-         ("\\.satyh$" . satysfi-mode))
+         ("\\.satyh$" . satysfi-mode)
+         ("\\.satyg$" . satysfi-mode))
   :config
   (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
          (setq satysfi-pdf-viewer-command "open -a Skim")
