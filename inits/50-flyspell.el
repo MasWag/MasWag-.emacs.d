@@ -1,9 +1,15 @@
-(require 'flyspell)
+;;; 50-flyspell --- Setting for flyspell
+;;; Commentary:
 
-(define-key flyspell-mode-map (kbd "C-;") nil)
+;;; Code:
 
-(mapc
- (lambda (hook)
-   (add-hook hook
-             '(lambda () (flyspell-mode 1))))
- '(markdown-mode-hook yatex-mode-hook org-mode-hook))
+(use-package flyspell
+  :ensure t
+  :hook (yatex-mode . flyspell-mode)
+  :hook (org-mode . flyspell-mode)
+  :hook (markdown-mode . flyspell-mode)
+  :bind (:map flyspell-mode-map
+              ((concat "C-;") . nil)))
+
+(provide '50-flyspell)
+;;; 50-flyspell.el ends here
