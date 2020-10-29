@@ -14,7 +14,7 @@
   :bind (("C-:" . avy-goto-char)
          ("C-'" . avy-goto-char-2)
 ;         ("C-'" . avy-goto-char-timer)
-         ("M-g f" . avy-goto-line)
+         ("M-g M-g" . avy-goto-line)
          ("M-g w" . avy-goto-word-1)
          ("M-g e" . avy-goto-word-0)
          ("C-c C-j" . avy-resume)

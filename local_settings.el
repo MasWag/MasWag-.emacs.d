@@ -9,6 +9,9 @@
       ((equal (system-name) "reimu")
        (load-file "/opt/nusmv/share/nusmv/contrib/nusmv-mode.el")))
 
-(setq todoist-token "ff31ef62eebec202624703ec7d6beefa847c6e86")
+(use-package todoist
+  :config
+  (setq todoist-token "ff31ef62eebec202624703ec7d6beefa847c6e86"))
+
 
 ;;; local_settings.el ends here

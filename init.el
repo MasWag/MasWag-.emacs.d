@@ -34,6 +34,42 @@
 ;; (setq langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*")
 ;;(setq langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("4639288d273cbd3dc880992e6032f9c817f17c4a91f00f3872009a099f5b3f84" default)))
+ '(display-time-mode t)
+ '(graphviz-dot-view-command "dot -Tpng %s -O")
+ '(irony-additional-clang-options (quote ("-std=c++14")))
+ '(org-agenda-files
+   (quote
+    ("/Users/calros/wiki/Research/Talks.org" "/Users/calros/wiki/Research/Automata-Based_Monitoring_with_Freezing_Operators.org" "/Users/calros/wiki/Research/DataMonitor.org" "/Users/calros/wiki/Research/DistributedFilter4PM.org" "/Users/calros/wiki/Research/Falsification_of_CPS_via_Automata_Learning.org" "/Users/calros/wiki/Research/MitsubishiMonitoring.org" "/Users/calros/wiki/Research/OnlineQuantitativeTimedPatternMatching.org" "/Users/calros/wiki/Research/RNN2WFA.org" "/Users/calros/wiki/Research/ResearchIdeas.org" "/Users/calros/wiki/Research/Reviews.org" "/Users/calros/wiki/Research/RobBBC.org" "/Users/calros/wiki/Research/cyveria.org" "/Users/calros/wiki/Research/demo_link.org" "/Users/calros/wiki/Research/largest_mutation_problem.org" "/Users/calros/wiki/Research/research_notes.org" "/Users/calros/wiki/Research/seasonaly_review.org" "/Users/calros/wiki/Research/weekly_review.org" "/Users/calros/wiki/Getting Started with Orgzly.org" "/Users/calros/wiki/keiko.org" "/Users/calros/wiki/mobile_notes.org" "/Users/calros/wiki/notes.org" "/Users/calros/wiki/pairs.org" "/Users/calros/wiki/the_art_of_war.org")))
+ '(package-selected-packages
+   (quote
+    (avy-migemo org-tree-slide z3-mode gitconfig-mode gitignore-mode json-mode ob-async company-terraform terraform-doc terraform-mode w3m pandoc-mode company-ansible company-bibtex company-shell company-lsp spinner lsp-haskell lsp-mode lsp-ui company-ghc mmm-mode ein-mumamo todoist biblio ace-window company-irony-c-header ace-jump-mode irony-eldoc gnuplot-mode flycheck-mypy ein yasnippet-snippets graphviz-dot-mode slack flymd cmake-ide cmake-mode bison-mode dockerfile-mode wolfram-mode yatex yaml-mode web-mode typescript-mode multi-term markdown-mode magit-svn magit-gitflow init-loader iedit helm-ag haskell-snippets haml-mode ghc ggtags flyspell-correct-helm flycheck-haskell ddskk ag ac-js2 ac-haskell-process)))
+ '(safe-local-variable-values
+   (quote
+    ((irony-additional-clang-options . "-std=c++14")
+     (eval setq flycheck-python-mypy-ini
+           (concat default-directory "mypy.ini"))
+     (flycheck-python-mypy-ini concat default-directory "mypy.ini"))))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background "#000040" :foreground "#e0e0e0"))))
+ '(aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c"))))
+ '(cursor ((((class color) (background dark)) (:background "#00AA00")) (((class color) (background light)) (:background "#999999")) (t nil))))
+
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
        ;; shell
        (setq shell-file-name "/usr/local/bin/bash")
