@@ -32,7 +32,6 @@
   :bind (:map reftex-mode-map
               ((concat YaTeX-prefix ">") . YaTeX-comment-region)
               ((concat YaTeX-prefix "<") . YaTeX-uncomment-region)))
-
 (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
        (setenv "PATH"
                (concat (getenv "PATH") ":/Library/TeX/texbin"))
