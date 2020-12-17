@@ -1,4 +1,3 @@
-(require 'cl)
 (require 'package)
 
 ;; Add package-archives
