@@ -1,6 +1,8 @@
 (require 'cl)
 (require 'package)
 
+(setenv "LANG" "en_US.UTF-8")
+
 ;; Add package-archives
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))

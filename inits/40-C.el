@@ -3,13 +3,15 @@
      ;; companyと競合するのでyasnippetのフィールド移動は "C-i" のみにする
      (define-key yas-keymap (kbd "<tab>") nil)
      (yas-global-mode 1)))
-(eval-after-load "irony"
-  '(progn
-     (custom-set-variables '(irony-additional-clang-options '("-std=c++14")))
-     (add-to-list 'company-backends '(company-irony-c-headers company-irony))
-     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-     (add-hook 'irony-mode-hook #'irony-eldoc)
-     (add-hook 'c-mode-common-hook 'irony-mode)))
+
+(use-package irony
+  :commands irony-mode
+  :config
+  (custom-set-variables '(irony-additional-clang-options '("-std=c++17")))
+  (add-to-list 'company-backends '(company-irony-c-headers company-irony))
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (add-hook 'irony-mode-hook #'irony-eldoc)
+  (add-hook 'c-mode-common-hook 'irony-mode))
 ;; (require 'ggtags)
 ;; (add-hook 'c-mode-hook 'ggtags-mode)
 ;; (add-hook 'c++-mode-hook 'ggtags-mode)

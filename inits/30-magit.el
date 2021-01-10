@@ -4,8 +4,10 @@
 ;;; Code:
 (require 'use-package)
 (use-package magit
+  :ensure t
   :init
-  (require 'magit-gitflow)
+  (use-package 'magit-gitflow
+    :ensure t)
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
   :bind (("\C-xgs" . magit-status)
           ("\C-xgb" . magit-show-refs-popup))

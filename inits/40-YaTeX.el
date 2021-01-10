@@ -23,17 +23,23 @@
   (setq YaTeX-latex-message-code 'utf-8)
   (setq YaTeX-use-LaTeX2e t)
   (setq YaTeX-use-AMS-LaTeX t)
-  (reftex-mode 1)
   (auto-fill-mode 0)
+;  (reftex-mode 1)
   (set (make-local-variable 'company-backends) '(company-ispell)))
 
 (use-package reftex
+  :ensure nil
   :hook (yatex-mode . reftex-mode)
   :bind (:map reftex-mode-map
-              ((concat YaTeX-prefix ">") . YaTeX-comment-region)
-              ((concat YaTeX-prefix "<") . YaTeX-uncomment-region)))
+              ("C-c (" . reftex-reference)
+              ("C-c )" . nil)
+              ("C-c >" . YaTeX-comment-region)
+              ("C-c <" . YaTeX-uncomment-region))
+  :defer t
+  :custom
+  (reftex-ref-style-default-list '("Cleveref") "Use cref/Cref as default"))
 
-(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+(cond ((equal (system-name) "MacBook-Pro.local")
        (setenv "PATH"
                (concat (getenv "PATH") ":/Library/TeX/texbin"))
        (setq tex-command "/Library/TeX/texbin/latexmk -pdf -pvc -view=none")

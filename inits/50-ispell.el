@@ -1,6 +1,13 @@
-(setq-default ispell-program-name "aspell")
-(eval-after-load "ispell"
- '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+;;; 50-ispell --- Configuration for spell checker
+;;; Commentary:
+;;; Code:
+
+(use-package ispell
+  :init
+  (setq-default ispell-program-name "aspell")
+  :config
+  (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
+  )
 
 
 ;; Local settings
@@ -10,3 +17,6 @@
        (setq ispell-alternate-dictionary "/usr/share/dict/words")
        (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
        ))
+
+(provide '50-ispell)
+;;; 50-ispell.el ends here
