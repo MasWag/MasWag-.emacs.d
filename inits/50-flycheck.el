@@ -1,9 +1,17 @@
 ;;; Package -- Summary
 ;;; Commentary:
+;;; Code:
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (flycheck-add-mode 'tex-chktex 'yatex-mode)
+  (flycheck-add-mode 'tex-lacheck 'yatex-mode)
+  (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+         (setq flycheck-tex-chktex-executable "/Library/TeX/texbin/chktex")
+  )))
 
-(require 'flycheck)
 (require 'vhdl-mode)
-(add-hook 'after-init-hook #'global-flycheck-mode)
 (define-key flycheck-mode-map (kbd "M-n") 'flycheck-next-error)
 (define-key flycheck-mode-map (kbd "M-p") 'flycheck-previous-error)
 
@@ -24,7 +32,6 @@
           '(lambda ()
              (setq flycheck-checker 'vhdl-ghdl)
              (flycheck-mode 1)))
-(flycheck-set-checker-executable 'tex-chktex)
 
 ;; Flycheck Grammarly
 ;; (use-package flycheck-grammarly

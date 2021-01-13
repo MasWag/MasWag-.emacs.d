@@ -1,4 +1,3 @@
-(require 'cl)
 (require 'package)
 
 (setenv "LANG" "en_US.UTF-8")

@@ -39,7 +39,7 @@
   :custom
   (reftex-ref-style-default-list '("Cleveref") "Use cref/Cref as default"))
 
-(cond ((equal (system-name) "MacBook-Pro.local")
+(cond ((equal (system-name) "Masakis-MacBook-Pro.local")
        (setenv "PATH"
                (concat (getenv "PATH") ":/Library/TeX/texbin"))
        (setq tex-command "/Library/TeX/texbin/latexmk -pdf -pvc -view=none")
@@ -68,7 +68,7 @@
            (if (null buf)
                (message "[Synctex]: %s is not opened..." fname)
              (switch-to-buffer buf)
-             (goto-line (car linecol))
+             (forward-line (car linecol))
              (unless (= col -1)
                (move-to-column col))
              (x-focus-frame (selected-frame)))))
