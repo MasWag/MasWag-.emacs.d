@@ -9,7 +9,7 @@
   :hook (org-mode . flyspell-mode)
   :hook (markdown-mode . flyspell-mode)
   :bind (:map flyspell-mode-map
-              ((concat "C-;") . nil)))
+              ("C-;" . nil)))
 
 (provide '50-flyspell)
 ;;; 50-flyspell.el ends here

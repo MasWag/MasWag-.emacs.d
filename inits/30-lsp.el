@@ -11,7 +11,7 @@
   (lsp-prefer-flymake nil)
   :config
   ;; LSP-UI tools
-  (require 'lsp-clients)
+  ;(require 'lsp-clients)
   (use-package lsp-ui
     :custom
     ;; lsp-ui-doc
@@ -28,7 +28,6 @@
     :hook
     (lsp-mode . lsp-ui-mode))
   ;; company-mode
-  (require 'company-lsp)
   (use-package company-lsp
     :commands company-lsp
     :custom
