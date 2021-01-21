@@ -3,8 +3,19 @@
 (unless (server-running-p)
   (server-start))
 
+;; add /usr/local/bin to PATH if not
+(if (not (string-match "\\(^\\|:\\)/usr/local/bin\\($\\|\\:\\)" (getenv "PATH")))
+    (setenv "PATH" (concat '"/usr/local/bin:" (getenv "PATH"))))
+;; the same thing for exec-path
+(if (not (member "/usr/local/bin" exec-path))
+    (setq exec-path (cons "/usr/local/bin" exec-path)))
+;; References
+; - https://flex.phys.tohoku.ac.jp/texi/eljman/eljman_220.html
+; - https://flex.phys.tohoku.ac.jp/texi/eljman/eljman_60.html
+; - https://ayatakesi.github.io/emacs/24.5/elisp_html/Sets-And-Lists.html
+
 ;;背景色の設定
-( when window-system 
+( when window-system
   (custom-set-faces
    '(default ((t
 	       (:background "#000040" :foreground "#e0e0e0")
