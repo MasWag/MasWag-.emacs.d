@@ -23,7 +23,9 @@
         ("w" "Weely Review" entry (file "~/wiki/Research/weekly_review.org")
          "* %?\nEntered on %U" )
         ("l" "Blog Entry" entry (file+headline "~/blog/blog.org" "Blog Entries")
-         "* TODO %? %^g\n:PROPERTIES:\n:EXPORT_FILE_NAME: \n:EXPORT_HUGO_SECTION: posts/%<%y>/%<%m>\n:EXPORT_DATE: %u\n:END:" )
+         "* TODO %? %^g\n:PROPERTIES:\n:EXPORT_FILE_NAME: \n:EXPORT_HUGO_SECTION: posts/%<%y>/%<%m>\n:EXPORT_DATE: %u\n:END:" :prepend t)
+        ("L" "Lecures" entry (file+headline "~/Google Drive File Stream/My Drive/Lectures.org" "InBox")
+         "** %?\nEntered on %U\n %i\n %a")
         ))
 
 ; メモをC-M-^一発で見るための設定
