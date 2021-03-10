@@ -1,0 +1,17 @@
+#+TITLE: Apperance
+#+AUTHOR: Masaki Waga
+#+LANGUAGE: en
+
+This file explains my GNU Emacs configuration on the apperance.
+
+#+BEGIN_SRC elisp :tangle 10-appearance.el :noweb yes
+
+#+END_SRC
+
+* TODO Start emacs server to run =emacsclient=
+
+* TODO Configure the background color
+
+* TODO Do not show tool-bar
+
+* TODO Use C-h for backspace
