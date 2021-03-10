@@ -9,6 +9,9 @@
   (use-package magit-gitflow
     :ensure t)
   (use-package magithub
+    :after magit
+    :config
+    (magithub-feature-autoinject t)
     :ensure t)
   (use-package magit-gh-pulls
     :ensure t)
