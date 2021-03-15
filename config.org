@@ -1,0 +1,203 @@
+#+TITLE: My Emacs Configuration
+#+AUTHOR: Masaki Waga
+#+LANGUAGE: en
+#+STARTUP: overview
+
+This file explains my GNU Emacs configuration.
+
+* COMMENT On the appearance
+
+#+BEGIN_SRC elisp :tangle ./inits/10-appearance.el :noweb yes
+; server start for emacs-client
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; add /usr/local/bin to PATH if not
+(if (not (string-match "\\(^\\|:\\)/usr/local/bin\\($\\|\\:\\)" (getenv "PATH")))
+    (setenv "PATH" (concat '"/usr/local/bin:" (getenv "PATH"))))
+;; the same thing for exec-path
+(if (not (member "/usr/local/bin" exec-path))
+    (setq exec-path (cons "/usr/local/bin" exec-path)))
+;; References
+; - https://flex.phys.tohoku.ac.jp/texi/eljman/eljman_220.html
+; - https://flex.phys.tohoku.ac.jp/texi/eljman/eljman_60.html
+; - https://ayatakesi.github.io/emacs/24.5/elisp_html/Sets-And-Lists.html
+
+;;背景色の設定
+( when window-system
+  (custom-set-faces
+   '(default ((t
+	       (:background "#000040" :foreground "#e0e0e0")
+	       )))
+   '(cursor ((((class color)
+	       (background dark))
+	      (:background "#00AA00"))
+	     (((class color)
+	       (background light))
+	      (:background "#999999"))
+	     (t ())
+	     ))))
+
+;; フレーム透過設定
+(add-to-list 'default-frame-alist '(alpha . (0.80 0.80)))
+;; tool-barを消す
+(tool-bar-mode 0)
+
+;; C-h でbackspaceにする
+(global-set-key "\C-h" 'delete-backward-char)
+
+;; 括弧を強調表示
+(show-paren-mode t)
+
+;; IMEの設定
+(define-key global-map [zenkaku-hankaku] 'toggle-input-method)
+;; 変換キーでIME ON
+(define-key global-map [henkan]
+  (lambda ()
+    (interactive)
+    (if current-input-method (deactivate-input-method))
+    (toggle-input-method)))
+
+;; 無変換キーでIME OFF
+(define-key global-map [muhenkan]
+  (lambda ()
+    (interactive)
+    (if current-input-method (deactivate-input-method))))
+
+;; iedit
+(global-set-key [?\C-;] 'iedit-mode)
+
+(global-set-key "\C-xc" 'compile)
+(setq-default indent-tabs-mode nil)
+
+(display-time-mode 1)
+
+;; skk
+(setq default-input-method "japanese-skk")
+#+END_SRC
+
+** TODO Start emacs server to run =emacsclient=
+
+** TODO Configure the background color
+
+** TODO Do not show tool-bar
+
+** TODO Use C-h for backspace
+
+* COMMENT C/C++
+
+The following is the entire configuration for C/C++
+
+#+BEGIN_SRC elisp :tangle ./inits/40-C.el :noweb yes
+;;; 40-C.el --- Configuration for C/C++
+;;; Commentary:
+;;; Code:
+(use-package irony
+  :commands irony-mode
+  :config
+  (custom-set-variables '(irony-additional-clang-options '("-std=c++17")))
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (add-hook 'irony-mode-hook #'irony-eldoc)
+  (add-hook 'c-mode-common-hook 'irony-mode))
+
+(provide '40-C)
+;;; 40-C.el ends here
+#+END_SRC
+
+** Irony
+
+
+
+*** https://github.com/Sarcasm/irony-mode/wiki/Mac-OS-X-issues-and-workaround
+
+* Docker
+
+Here is the configuration for docker, mainly to write Dockerfile.
+
+#+BEGIN_SRC elisp :tangle ./inits/40-Docker.el :noweb yes
+  ;;; 40-Docker.el --- Configuration for Docker
+  ;;; Commentary:
+  ;;; Code:
+  (use-package dockerfile-mode
+    :ensure t
+    )
+  (use-package docker
+    :ensure t
+    )
+  (provide '40-Docker)
+  ;;; 40-Docker.el ends here
+#+END_SRC
+
+** dockerfile-mode
+
+** docker
+
+** flycheck
+
+#+BEGIN_SRC sh
+brew install hadolint
+#+END_SRC
+
+#+RESULTS:
+
+* OCaml
+
+#+BEGIN_SRC elisp :noweb yes :tangle ./inits/40-OCaml.el
+;;; 40-OCaml.el --- Configuration for OCaml
+;;; Commentary:
+;;; Code:
+<<TUAREG>>
+<<MERLIN>>
+<<UTOP>>
+<<OCAML_FLYCHECK>>
+;;; 40-OCaml.el ends here
+#+END_SRC
+
+** Set up Tuareg
+
+#+NAME: TUAREG
+#+BEGIN_SRC elisp
+  (use-package tuareg
+    :ensure t
+    :hook (tuareg-mode . electric-pair-local-mode)
+    ;; (add-hook 'tuareg-mode-hook 'tuareg-imenu-set-imenu)
+    :mode (("\\.ml[ily]?$" . tuareg-mode)
+           ("\\.topml$" . tuareg-mode)))
+#+END_SRC
+
+** Set up Merlin
+
+#+NAME: MERLIN
+#+BEGIN_SRC elisp
+  (use-package merlin
+    :ensure t
+    :after (company tuareg)
+    :hook ((tuareg-mode . merlin-mode)
+           (merlin-mode . company-mode))
+    :config
+    (setq merlin-error-after-save nil))
+#+END_SRC
+
+** Set up utop
+
+#+NAME: UTOP
+#+BEGIN_SRC elisp
+  (use-package utop
+    :ensure t
+    :after tuareg
+    :config
+    ;; (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+    :hook (tuareg-mode . utop-minor-mode))
+#+END_SRC
+
+** Set up flycheck
+
+#+NAME: OCAML_FLYCHECK
+#+BEGIN_SRC elisp
+  (use-package flycheck-ocaml
+    :ensure t  
+    :after (flycheck merlin)
+    :init
+    (flycheck-add-mode 'ocaml-merlin merlin-mode))
+#+END_SRC
