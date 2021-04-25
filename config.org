@@ -222,3 +222,62 @@ brew install hadolint
     :init
     (flycheck-add-mode 'ocaml-merlin merlin-mode))
 #+END_SRC
+* PlantUML mode
+:PROPERTIES:
+:EXPORT_FILE_NAME: plantuml
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
+
+Here, we configure the major mode for PlantUML.
+
+- GitHub :: https://github.com/skuro/plantuml-mode
+
+References 
+- https://github.com/tsu-nera/dotfiles/blob/master/.emacs.d/inits/33_minorlang.org
+- https://skoji.jp/blog/2020/01/plantuml.html
+- https://joppot.info/2017/10/30/4091
+
+#+BEGIN_SRC elisp :tangle ./40-PlantUML.el :noweb yes
+  ;;; 40-PlantUML ---  Setting for PlantUML
+  ;;; Commentary:
+
+  ;;; Code:
+  (use-package plantuml-mode
+    <<ENSURE_INSTALLATION>>
+    :commands plantuml-mode
+    <<PLANTUML_MODE>>
+    :config
+    <<PLANTUML_CONFIG>>
+    )
+  (provide '40-PlantUML)
+  ;;; 40-PlantUML.el ends here
+#+END_SRC  
+
+** Configure =auto-mode-alist=
+
+#+NAME: PLANTUML_MODE
+#+BEGIN_SRC elisp
+  :mode (("\\.pu$" . plantuml-mode)
+         ("\\.plantuml$" . plantuml-mode)
+         ("\\.puml$" . plantuml-mode))
+#+END_SRC
+
+
+** Other Configurations on PlantUML
+  :PROPERTIES:
+  :header-args: :noweb-ref PLANTUML_CONFIG
+  :END:
+
+#+BEGIN_SRC elisp
+  (setq plantuml-default-exec-mode 'executable)
+  (cond ((equal (system-name) "MacBook-Pro-3.local")
+         (setq plantuml-executable-path "/usr/local/bin/plantuml")
+         (setq plantuml-jar-path "/usr/local/Cellar/plantuml/1.2021.0/libexec/plantuml.jar")))
+#+END_SRC
+
+
+#+BEGIN_SRC elisp
+  (setq plantuml-jar-args "-charset UTF-8")
+#+END_SRC
+
