@@ -1,3 +1,4 @@
+#+HUGO_BASE_DIR: ../doc/
 #+TITLE: My Emacs Configuration
 #+AUTHOR: Masaki Waga
 #+LANGUAGE: en
@@ -6,6 +7,11 @@
 This file explains my GNU Emacs configuration.
 
 * COMMENT On the appearance
+:PROPERTIES:
+:EXPORT_FILE_NAME: appearance
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
 
 #+BEGIN_SRC elisp :tangle ./inits/10-appearance.el :noweb yes
 ; server start for emacs-client
@@ -86,6 +92,11 @@ This file explains my GNU Emacs configuration.
 ** TODO Use C-h for backspace
 
 * COMMENT C/C++
+:PROPERTIES:
+:EXPORT_FILE_NAME: c-lang
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
 
 The following is the entire configuration for C/C++
 
@@ -112,6 +123,11 @@ The following is the entire configuration for C/C++
 *** https://github.com/Sarcasm/irony-mode/wiki/Mac-OS-X-issues-and-workaround
 
 * Docker
+:PROPERTIES:
+:EXPORT_FILE_NAME: docker
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
 
 Here is the configuration for docker, mainly to write Dockerfile.
 
@@ -142,6 +158,11 @@ brew install hadolint
 #+RESULTS:
 
 * OCaml
+:PROPERTIES:
+:EXPORT_FILE_NAME: ocaml
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
 
 #+BEGIN_SRC elisp :noweb yes :tangle ./inits/40-OCaml.el
 ;;; 40-OCaml.el --- Configuration for OCaml

@@ -61,6 +61,7 @@
               ))
   (org-babel-do-load-languages 'org-babel-load-languages
                                '(
+                                 (C . t)
                                  (python . t)
                                  (shell . t)
                                  )

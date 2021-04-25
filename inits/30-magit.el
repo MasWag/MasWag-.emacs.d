@@ -16,12 +16,13 @@
   (use-package magit-gh-pulls
     :ensure t)
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
-  :bind (("\C-xgs" . magit-status)
-          ("\C-xgb" . magit-show-refs-popup))
+  :bind (("C-x g s" . magit-status)
+          ("C-x g b" . magit-show-refs-popup))
   :hook
   (magit . magit-gitflow)
   (magit . magit-gh-pulls)
-  (magit . magithub))
+  ;(magit . magithub)
+)
 
 ;;; 30-magit ends here
 
