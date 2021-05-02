@@ -3,7 +3,7 @@
 
 ;;; Code:
 (use-package plantuml-mode
-  
+  :ensure t
   :commands plantuml-mode
   :mode (("\\.pu$" . plantuml-mode)
          ("\\.plantuml$" . plantuml-mode)

@@ -6,6 +6,20 @@
 
 This file explains my GNU Emacs configuration.
 
+#+BEGIN_SRC elisp
+  (use-package ox-hugo
+    :ensure t)
+  (require 'ox-hugo)
+#+END_SRC
+
+#+RESULTS:
+: ox-hugo
+
+#+NAME: ENSURE_INSTALLATION
+#+BEGIN_SRC elisp
+    :ensure t
+#+END_SRC
+
 * COMMENT On the appearance
 :PROPERTIES:
 :EXPORT_FILE_NAME: appearance
@@ -238,7 +252,7 @@ References
 - https://skoji.jp/blog/2020/01/plantuml.html
 - https://joppot.info/2017/10/30/4091
 
-#+BEGIN_SRC elisp :tangle ./40-PlantUML.el :noweb yes
+#+BEGIN_SRC elisp :tangle ./inits/40-PlantUML.el :noweb yes
   ;;; 40-PlantUML ---  Setting for PlantUML
   ;;; Commentary:
 
@@ -281,3 +295,54 @@ References
   (setq plantuml-jar-args "-charset UTF-8")
 #+END_SRC
 
+* lua
+:PROPERTIES:
+:EXPORT_FILE_NAME: lua
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
+
+Here, we configure the major mode for lua.
+
+The following shows the outline of the configuration.
+
+#+BEGIN_SRC elisp :tangle ./inits/40-lua.el :noweb yes
+  ;;; 40-lua ---  Setting for lua
+  ;;; Commentary:
+
+  ;;; Code:
+  (use-package lua-mode
+    <<ENSURE_INSTALLATION>>
+    :commands lua-mode
+    <<LUA_MODE>>
+    )
+  (provide '40-lua)
+  ;;; 40-lua.el ends here
+#+END_SRC  
+
+** Configure =auto-mode-alist=
+
+We use lua-mode for the files with =.lua=
+
+#+NAME: LUA_MODE
+#+BEGIN_SRC elisp
+  :mode (("\\.lua" . lua-mode))
+#+END_SRC
+
+
+** Other Configurations on lua
+  :PROPERTIES:
+  :header-args: :noweb-ref LUA_CONFIG
+  :END:
+
+#+BEGIN_SRC elisp
+  (setq plantuml-default-exec-mode 'executable)
+  (cond ((equal (system-name) "MacBook-Pro-3.local")
+         (setq plantuml-executable-path "/usr/local/bin/plantuml")
+         (setq plantuml-jar-path "/usr/local/Cellar/plantuml/1.2021.0/libexec/plantuml.jar")))
+#+END_SRC
+
+
+#+BEGIN_SRC elisp
+  (setq plantuml-jar-args "-charset UTF-8")
+#+END_SRC
