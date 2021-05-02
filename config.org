@@ -330,7 +330,7 @@ We use lua-mode for the files with =.lua=
 #+END_SRC
 
 
-** Other Configurations on lua
+** COMMENT Other Configurations on lua
   :PROPERTIES:
   :header-args: :noweb-ref LUA_CONFIG
   :END:
