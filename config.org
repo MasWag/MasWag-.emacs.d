@@ -136,6 +136,47 @@ The following is the entire configuration for C/C++
 
 *** https://github.com/Sarcasm/irony-mode/wiki/Mac-OS-X-issues-and-workaround
 
+
+* ace-window
+:PROPERTIES:
+:EXPORT_FILE_NAME: ace-window
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
+
+[[https://github.com/abo-abo/ace-window][ace-window]] allows us to switch between the buffers quickly.
+
+The following is the whole configuration.
+
+#+BEGIN_SRC elisp :tangle ./inits/20-ace-window.el :noweb yes
+  ;;; 20-ace-window.el --- Configuration for ace-window
+  ;;; Commentary:
+  ;;; Code:
+  (use-package ace-window
+    <<ENSURE_INSTALLATION>>
+    :custom
+    <<ACE_WINDOW_KEYS>>
+    :bind (<<ACE_WINDOW_BIND>>)
+    :custom-face
+    (aw-leading-char-face ((t (:height 4.0 :foreground "#f1fa8c")))))
+  (provide '20-ace-window)
+  ;;; 20-ace-window.el ends here
+#+END_SRC
+
+We invoke ace-jump by =C-c w=.
+
+#+NAME: ACE_WINDOW_BIND
+#+BEGIN_SRC elisp
+("C-c w" . ace-window)
+#+END_SRC
+
+Ace-window assigns one of the following characters to each buffer, and we can jump to the buffer by typing it.
+
+#+NAME: ACE_WINDOW_KEYS
+#+BEGIN_SRC elisp
+(aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
+#+END_SRC
+
 * Docker
 :PROPERTIES:
 :EXPORT_FILE_NAME: docker
