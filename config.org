@@ -243,7 +243,7 @@ brew install hadolint
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
 :END:
 
-Here, we configure the major mode for PlantUML.
+Here, we configure the major mode for [[https://plantuml.com/en/][PlantUML]], which is a open-source tool to write UML in text.
 
 - GitHub :: https://github.com/skuro/plantuml-mode
 
