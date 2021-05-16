@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package ace-window
+  :ensure t
   :custom
   (aw-keys '(?j ?k ?l ?i ?o ?h ?y ?u ?p))
   :bind (("C-c w" . ace-window))

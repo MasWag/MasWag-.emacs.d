@@ -387,3 +387,37 @@ We use lua-mode for the files with =.lua=
 #+BEGIN_SRC elisp
   (setq plantuml-jar-args "-charset UTF-8")
 #+END_SRC
+
+* gnuplot
+:PROPERTIES:
+:EXPORT_FILE_NAME: gnuplot
+:EXPORT_HUGO_SECTION: emacs
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :toc true
+:END:
+
+Here, we configure the major mode for gnuplot.
+
+The following shows the outline of the configuration.
+
+#+BEGIN_SRC elisp :tangle ./inits/40-gnuplot.el :noweb yes
+  ;;; 40-gnuplot ---  Setting for gnuplot
+  ;;; Commentary:
+
+  ;;; Code:
+  (use-package gnuplot-mode
+    <<ENSURE_INSTALLATION>>
+    :commands gnuplot-mode
+    <<GNUPLOT_MODE>>
+    )
+  (provide '40-gnuplot)
+  ;;; 40-gnuplot.el ends here
+#+END_SRC
+
+** Configure =auto-mode-alist=
+
+We use gnuplot-mode for the files with =.plt=
+
+#+NAME: GNUPLOT_MODE
+#+BEGIN_SRC elisp
+  :mode (("\\.plt" . gnuplot-mode))
+#+END_SRC
