@@ -58,11 +58,11 @@
 ;;   (define-key flycheck-mode-map (kbd "C-M-p") 'flycheck-previous-error)
 ;;   (add-hook 'c-mode-common-hook 'flycheck-mode))
 
-;; ;; flycheck-mode
-;; ;; (eval-after-load "flycheck"
-;; ;;   '(progn
-;; ;;      (when (locate-library "flycheck-irony")
-;; ;;        (flycheck-irony-setup))))
+;; flycheck-mode
+(eval-after-load "flycheck"
+  '(progn
+     (when (locate-library "flycheck-irony")
+       (flycheck-irony-setup))))
 
 ;; (add-hook 'c++-mode-hook 'flycheck-mode)
 ;; (add-hook 'c-mode-hook 'flycheck-mode)

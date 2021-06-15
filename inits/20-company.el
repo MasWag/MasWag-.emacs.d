@@ -57,7 +57,10 @@
   (make-local-variable 'company-backends)
 
   ;; company-ispell is the plugin to complete words
-  (add-to-list 'company-backends 'company-ispell))
+  ;;(add-to-list 'company-backends 'company-ispell)
+
+  ;; I prefer using company-tabnine
+  (add-to-list 'company-backends #'company-tabnine))
 
 (add-hook 'text-mode-hook 'text-mode-hook-setup)
 
