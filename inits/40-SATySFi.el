@@ -1,9 +1,11 @@
 ;; satysfi
 (require 'use-package)
+
 (use-package satysfi
   :mode (("\\.saty$" . satysfi-mode)
          ("\\.satyh$" . satysfi-mode)
          ("\\.satyg$" . satysfi-mode))
+  :hook (satysfi-mode . lsp)
   :config
   (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
          (setq satysfi-pdf-viewer-command "open -a Skim")
@@ -13,19 +15,31 @@
          (setq satysfi-pdf-viewer-command "evince")
          (setq satysfi-command "satysfi")
          ))
+
+  ;; LSP
+  (add-to-list 'lsp-language-id-configuration '(satysfi-mode . "satysfi-ls"))
+  ;;/Users/calros/satysfi-language-server/target/debug/satysfi-language-server
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("/Users/calros/satysfi-language-server/target/debug/satysfi-language-server"))
+                    :major-modes '(satysfi-mode)
+                    :priority 0
+                    :activation-fn (lsp-activate-on "satysfi-ls")
+                    :server-id 'satysfi-ls))
+
   ;; Configuration of flycheck for SATySFi
-  (require 'flycheck)
+  ;; (require 'flycheck)
 
-  (flycheck-define-checker satysfi-type
-    "A SATySFi type checker"
-    :command ("satysfi" "-t" source-inplace)
-    :error-patterns
-    ((error line-start
-            "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
-            (message (one-or-more not-newline)
-                     (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
-    :modes (satysfi-mode))
+  ;; (flycheck-define-checker satysfi-type
+  ;;   "A SATySFi type checker"
+  ;;   :command ("satysfi" "-t" source-inplace)
+  ;;   :error-patterns
+  ;;   ((error line-start
+  ;;           "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
+  ;;           (message (one-or-more not-newline)
+  ;;                    (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
+  ;;   :modes (satysfi-mode))
 
-  (setq flycheck-satysfi-type-executable satysfi-command)
+  ;; (setq flycheck-satysfi-type-executable satysfi-command)
 
-  (add-to-list 'flycheck-checkers 'satysfi-type))
+  ;; (add-to-list 'flycheck-checkers 'satysfi-type)
+  )

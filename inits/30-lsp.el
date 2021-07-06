@@ -27,15 +27,18 @@
     (lsp-ui-flycheck-enable t)
     :hook
     (lsp-mode . lsp-ui-mode))
+  (setq lsp-document-sync-method lsp--sync-incremental) ;; 'inclemental を指定してはいけない
+  (setq lsp-prefer-capf t)
   ;; company-mode
-  (use-package company-lsp
-    :commands company-lsp
-    :custom
-    (company-lsp-cache-item-candidates nil)
-    (company-lsp-async t)
-    (company-lsp-enable-recompletion t)
-    (company-lsp-enable-snippet t)
-    :after
-    (lsp-mode company lsp-ui yasnippet)
-    :init 
-    (push 'company-lsp company-backends)))
+  ;; (use-package company-lsp
+  ;;   :commands company-lsp
+  ;;   :custom
+  ;;   (company-lsp-cache-item-candidates nil)
+  ;;   (company-lsp-async t)
+  ;;   (company-lsp-enable-recompletion t)
+  ;;   (company-lsp-enable-snippet t)
+  ;;   :after
+  ;;   (lsp-mode company lsp-ui yasnippet)
+  ;;   :init 
+  ;;   (push 'company-lsp company-backends))
+)
