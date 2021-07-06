@@ -137,6 +137,43 @@ The following is the entire configuration for C/C++
 *** https://github.com/Sarcasm/irony-mode/wiki/Mac-OS-X-issues-and-workaround
 
 
+* leaf.el
+
+I am recently started switching from [[https://github.com/jwiegley/use-package][use-package]] to [[https://github.com/conao3/leaf.el][leaf.el]] because leaf.el is more modern, it seems leaf.el is better maintained, and recently, main people writes their configurations with leaf.el. The configuration is taken from [[https://qiita.com/conao3/items/347d7e472afd0c58fbd7][this]] Qiita article.
+
+The following is the whole configuration.
+
+#+BEGIN_SRC elisp :tangle ./inits/10-leaf.el :noweb yes
+  ;;; 10-leaf.el --- Configuration for leaf.el
+  ;;; Commentary:
+  ;;; Code:
+  (leaf leaf-keywords
+        :ensure t
+        :init
+        ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
+        (leaf hydra :ensure t)
+        (leaf el-get :ensure t)
+        (leaf blackout :ensure t)
+  
+        :config
+        ;; initialize leaf-keywords.el
+        (leaf-keywords-init))
+  
+  (leaf leaf
+        :config
+        (leaf leaf-convert :ensure t)
+        (leaf leaf-tree
+              :ensure t
+              :custom ((imenu-list-size . 30)
+                       (imenu-list-position . 'left))))
+  
+  (leaf macrostep
+        :ensure t
+        :bind (("C-c e" . macrostep-expand)))
+  (provide '10-leaf)
+  ;;; 10-leaf.el ends here
+#+END_SRC
+
 * ace-window
 :PROPERTIES:
 :EXPORT_FILE_NAME: ace-window

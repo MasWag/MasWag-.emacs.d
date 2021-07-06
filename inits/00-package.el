@@ -17,6 +17,8 @@
     flyspell-correct-helm
     magit-gitflow
     use-package
+    ;; I am switching to leaf.el
+    leaf
     matlab-mode
     ; Jump
     avy
