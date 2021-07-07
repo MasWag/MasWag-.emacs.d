@@ -460,9 +460,8 @@ The following shows the outline of the configuration.
   ;;; Commentary:
 
   ;;; Code:
-  (use-package gnuplot-mode
+  (leaf gnuplot-mode
     <<ENSURE_INSTALLATION>>
-    :commands gnuplot-mode
     <<GNUPLOT_MODE>>
     )
   (provide '40-gnuplot)
@@ -475,5 +474,5 @@ We use gnuplot-mode for the files with =.plt=
 
 #+NAME: GNUPLOT_MODE
 #+BEGIN_SRC elisp
-  :mode (("\\.plt" . gnuplot-mode))
+  :mode ("\\.plt")
 #+END_SRC
