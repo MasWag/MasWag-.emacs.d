@@ -2,7 +2,6 @@
 ;;; Commentary:
 
 ;;; Code:
-(require 'use-package)
 (use-package magit
   :ensure t
   :init
@@ -20,10 +19,7 @@
           ("C-x g b" . magit-show-refs-popup))
   :hook
   (magit . magit-gitflow)
-  (magit . magit-gh-pulls)
-  ;(magit . magithub)
-)
-
+  (magit . magit-gh-pulls))
 ;;; 30-magit ends here
 
 
