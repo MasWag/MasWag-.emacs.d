@@ -2,24 +2,18 @@
 ;;; Commentary:
 
 ;;; Code:
-(use-package verilog-mode
-  ;; .v or .vt files are verilog files
-  :mode (("\\.v$" . verilog-mode)
-         ("\\.vt$" . verilog-mode))
+(leaf verilog-mode
+  :bind ((verilog-mode-map
+          ("M-*" . ggtags-navigation-mode-abort)))
+  :mode ("\\.v$" "\\.vt$")
+  :hook (verilog-mode-hook ggtags-mode-hook)
   :config
-  ;; use flycheck to check the verilog syntax
   (use-package flycheck
     :ensure t
     :hook (after-init . global-flycheck-mode)
     :config
-    (flycheck-add-mode 'verilog-verilator 'verilog-mode)
-    ;; in order to enable verilog-verilator, you have to install verilator, e.g., by `brew install verilator`(in macOS) .
-    )
-  ;; use ggtags for tag jump
+    (flycheck-add-mode 'verilog-verilator 'verilog-mode))
+
   (use-package ggtags
-    :ensure t
-    )
-  :hook (verilog-mode ggtags-mode)
-  :bind (:map verilog-mode-map
-              ("M-*" . ggtags-navigation-mode-abort)))
+    :ensure t))
 ;;; 40-Verilog.el ends here

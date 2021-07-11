@@ -2,9 +2,13 @@
 
 (setenv "LANG" "en_US.UTF-8")
 
+(setq package-archives nil)
+
 ;; Add package-archives
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("nongnu-elpa" . "https://elpa.nongnu.org/nongnu/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
