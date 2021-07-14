@@ -17,23 +17,23 @@
   :bind (:map flycheck-mode-map
               ("M-p" . flycheck-previous-error)))
 
-(require 'vhdl-mode)
-
-(flycheck-define-checker vhdl-ghdl
-  "A VHDL syntax checker using ghdl."
-  :command ("ghdl" "-s" "--std=93" "--ieee=synopsys" "-fexplicit" source)
-  :error-patterns
-  ((error line-start (file-name) ":" line ":" column
-	  ": " (message) line-end))
-  :modes vhdl-mode)
-;(flycheck-set-checker-executable 'vhdl-ghdl)
-
-
-(add-hook 'vhdl-mode-hook
-          '(lambda ()
-             (setq flycheck-checker 'vhdl-ghdl)
-             (flycheck-mode 1)))
-
+(leaf leaf-convert
+  :require vhdl-mode
+  :config
+  (flycheck-define-checker vhdl-ghdl
+    "A VHDL syntax checker using ghdl." :command
+    ("ghdl" "-s" "--std=93" "--ieee=synopsys" "-fexplicit" source)
+    :error-patterns
+    ((error line-start
+            (file-name)
+            ":" line ":" column ": "
+            (message)
+            line-end))
+    :modes vhdl-mode)
+  (add-hook 'vhdl-mode-hook
+            '(lambda nil
+               (setq flycheck-checker 'vhdl-ghdl)
+               (flycheck-mode 1))))
 ;; Flycheck Grammarly
 ;; (use-package flycheck-grammarly
 ;;   :config
