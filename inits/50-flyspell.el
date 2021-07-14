@@ -3,13 +3,11 @@
 
 ;;; Code:
 
-(use-package flyspell
+(leaf flyspell
   :ensure t
-  :hook (yatex-mode . flyspell-mode)
-  :hook (org-mode . flyspell-mode)
-  :hook (markdown-mode . flyspell-mode)
-  :bind (:map flyspell-mode-map
-              ("C-;" . nil)))
+  :bind ((flyspell-mode-map
+          ("C-;")))
+  :hook (yatex-mode-hook org-mode-hook markdown-mode-hook))
 
 (provide '50-flyspell)
 ;;; 50-flyspell.el ends here

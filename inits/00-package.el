@@ -1,4 +1,4 @@
-(setq installing-package-list
+(defvar installing-package-list
   '(
     ;; Common
     company
