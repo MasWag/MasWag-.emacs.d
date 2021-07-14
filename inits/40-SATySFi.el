@@ -27,19 +27,19 @@
                     :server-id 'satysfi-ls))
 
   ;; Configuration of flycheck for SATySFi
-  ;; (require 'flycheck)
+  (require 'flycheck)
 
-  ;; (flycheck-define-checker satysfi-type
-  ;;   "A SATySFi type checker"
-  ;;   :command ("satysfi" "-t" source-inplace)
-  ;;   :error-patterns
-  ;;   ((error line-start
-  ;;           "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
-  ;;           (message (one-or-more not-newline)
-  ;;                    (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
-  ;;   :modes (satysfi-mode))
+  (flycheck-define-checker satysfi-type
+    "A SATySFi type checker"
+    :command ("satysfi" "-t" source-inplace)
+    :error-patterns
+    ((error line-start
+            "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
+            (message (one-or-more not-newline)
+                     (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
+    :modes (satysfi-mode))
 
-  ;; (setq flycheck-satysfi-type-executable satysfi-command)
+  (setq flycheck-satysfi-type-executable satysfi-command)
 
   ;; (add-to-list 'flycheck-checkers 'satysfi-type)
   )

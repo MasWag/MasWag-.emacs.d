@@ -56,7 +56,11 @@
     (if current-input-method (deactivate-input-method))))
 
 ;; iedit
-(global-set-key [?\C-;] 'iedit-mode)
+(leaf iedit
+  :ensure t
+  :bind (([67108923] . iedit-mode)))
+;; (global-set-key [?\C-;] 'iedit-mode)
+
 
 (global-set-key "\C-xc" 'compile)
 (setq-default indent-tabs-mode nil)

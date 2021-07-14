@@ -9,8 +9,6 @@
     ggtags
     flycheck
     yasnippet
-    ddskk
-    iedit
     multi-term
     haskell-mode
     yatex
