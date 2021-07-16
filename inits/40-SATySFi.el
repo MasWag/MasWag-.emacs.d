@@ -7,7 +7,8 @@
          ("\\.satyg$" . satysfi-mode))
   :hook (satysfi-mode . lsp)
   :config
-  (cond ((equal (system-name) "Masakis-MacBook-Pro.local")
+  (cond ((or (equal (system-name) "Masakis-MacBook-Pro.local")
+             (equal (system-name) "MacBook-Pro-3.local"))
          (setq satysfi-pdf-viewer-command "open -a Skim")
          (setq satysfi-command "/Users/calros/bin/satysfi")
          )
@@ -31,7 +32,7 @@
 
   (flycheck-define-checker satysfi-type
     "A SATySFi type checker"
-    :command ("satysfi" "-t" source-inplace)
+    :command ("/Users/calros/bin/satysfi" "-t" source-inplace)
     :error-patterns
     ((error line-start
             "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
