@@ -227,12 +227,12 @@ Here is the configuration for docker, mainly to write Dockerfile.
   ;;; 40-Docker.el --- Configuration for Docker
   ;;; Commentary:
   ;;; Code:
-  (use-package dockerfile-mode
+  (leaf dockerfile-mode
     :ensure t
-    )
-  (use-package docker
+    :require t)
+  (leaf docker
     :ensure t
-    )
+    :require t)
   (provide '40-Docker)
   ;;; 40-Docker.el ends here
 #+END_SRC
