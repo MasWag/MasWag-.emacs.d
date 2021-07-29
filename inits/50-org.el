@@ -16,6 +16,9 @@
         ("h" "HAMoni" entry (file "~/parametric_HA_monitor/meeting_note.txt")
          "* %<%Y-%m-%d %a>\nEntered on %U\n** Masaki %?\n\n** Etienne" 
          :prepend t)
+        ("d" "ActiveDTALearning" entry (file+headline "~/wiki/Research/ActiveDTALearning.org" "Notes")
+         "** %?\nEntered on %U\n %i\n %a"
+         :prepend t)
         ("b" "Bookmark" entry (file+headline "~/wiki/Bookmark.org" "InBox")
          "** %?\nEntered on %U\n %i\n %a")
         ("t" "Tools" entry (file+olp "~/wiki/notes.org" "Nice Tools" "InBox")
