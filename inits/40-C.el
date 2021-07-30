@@ -72,10 +72,9 @@
 ;; ;; eldoc-mode
 ;; (add-hook 'irony-mode-hook 'irony-eldoc)
 
-;; (use-package bison-mode
-;;   :init
-;;   (require 'bison-mode)
-;;   :mode (("\\.yy$" . bison-mode)))
+(leaf bison-mode
+  :mode ("\\.yy$")
+  :require t)
 
 ;; ;; (add-hook 'c-mode-hook 'my:flycheck-c-setup)
 ;; ;; (add-hook 'c++-mode-hook 'my:flycheck-c++-setup)
