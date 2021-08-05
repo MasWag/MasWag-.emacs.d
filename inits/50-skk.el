@@ -11,6 +11,8 @@
   (define-key global-map [hiragana-katakana] 'skk-toggle-kana)
   ;;; Preload SKK at the start up time
   (setq skk-preload t)
-  (setq skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L"))
+  (setq skk-large-jisyo "~/.emacs.d/skk-get-jisyo/SKK-JISYO.L")
+  ;;; Add emoji dictionary
+  (add-to-list 'skk-extra-jisyo-file-list '("~/.emacs.d/SKK-JISYO.emoji.utf8" . utf-8-unix)))
 (provide '50-skk)
 ;;; 50-skk.el ends here

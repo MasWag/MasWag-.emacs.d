@@ -510,3 +510,11 @@ Pomodoro technique in org-mode
 
 #+RESULTS:
 
+* emojify
+
+#+BEGIN_SRC elisp :tangle ./inits/50-emojify.el
+  (leaf emojify
+    :ensure t
+    :if (display-graphic-p)
+    :hook (after-init . global-emojify-mode))
+#+END_SRC
