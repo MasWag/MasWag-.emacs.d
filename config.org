@@ -444,6 +444,25 @@ We use lua-mode for the files with =.lua=
   (setq plantuml-jar-args "-charset UTF-8")
 #+END_SRC
 
+
+* Apache
+
+Here, we configure the major mode for the configuration files of Apache.
+
+#+BEGIN_SRC elisp :tangle ./inits/40-apache.el :noweb yes
+  ;;; 40-apache ---  Setting for Apache
+  ;;; Commentary:
+  
+  ;;; Code:
+  (leaf apache-mode
+    <<ENSURE_INSTALLATION>>
+    :commands apache-mode
+    :require t
+    )
+  (provide '40-apache)
+  ;;; 40-apache.el ends here
+#+END_SRC
+
 * gnuplot
 :PROPERTIES:
 :EXPORT_FILE_NAME: gnuplot

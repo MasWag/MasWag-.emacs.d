@@ -1,7 +1,12 @@
-; server start for emacs-client
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+;; server start for emacs-client
+(leaf server
+  :ensure t
+  :init
+  (server-mode 1)
+  :require t
+  :config
+  (unless (server-running-p)
+    (server-start)))
 
 ;; add /usr/local/bin to PATH if not
 (if (not (string-match "\\(^\\|:\\)/usr/local/bin\\($\\|\\:\\)" (getenv "PATH")))
