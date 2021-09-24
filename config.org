@@ -383,8 +383,8 @@ References
   (setq plantuml-default-exec-mode 'executable)
   (cond ((equal (system-name) "MacBook-Pro-3.local")
          (setq plantuml-executable-path "/usr/local/bin/plantuml")
-         (setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/1.2021.7/libexec/plantuml.jar")
-         (setq plantuml-jar-path "/usr/local/Cellar/plantuml/1.2021.7/libexec/plantuml.jar")))
+         (setq org-plantuml-jar-path "/usr/local/Cellar/plantuml/1.2021.10/libexec/plantuml.jar")
+         (setq plantuml-jar-path "/usr/local/Cellar/plantuml/1.2021.10/libexec/plantuml.jar")))
 #+END_SRC
 
 
