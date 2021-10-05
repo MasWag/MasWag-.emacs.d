@@ -537,3 +537,6 @@ Pomodoro technique in org-mode
     :if (display-graphic-p)
     :hook (after-init . global-emojify-mode))
 #+END_SRC
+* TODO org-noter
+* TODO tikz
+
