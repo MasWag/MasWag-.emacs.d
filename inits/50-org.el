@@ -68,6 +68,7 @@
                                  (plantuml . t)
                                  (python . t)
                                  (shell . t)
+                                 (maxima . t)
                                  )
                                ))
 
