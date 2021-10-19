@@ -10,6 +10,8 @@
          "* %?\nEntered on %U\n %i\n %a")
         ("r" "Research Note" entry (file+headline "~/wiki/Research/research_notes.org" "Research Notes")
          "* %?\nEntered on %U\n %i\n %a")
+        ("k" "研究会" entry (file+headline "~/wiki/Research/research_notes.org" "研究会")
+         "* %?\nEntered on %U\n %i\n %a")
         ;; ("c" "CyVeriA" entry (file "~/wiki/Research/cyveria.org")
         ;;  "* %?\nEntered on %U" )
 ;         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
