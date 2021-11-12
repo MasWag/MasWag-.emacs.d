@@ -13,20 +13,14 @@
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-completion-provider :capf)
   ;; LSP-UI tools
   ;(require 'lsp-clients)
+
+lsp-completion-enable
+
   (use-package lsp-ui
     :custom
-    ;; lsp-ui-doc
-    ;; (lsp-ui-doc-enable t)
-    ;; (lsp-ui-doc-header t)
-    ;; (lsp-ui-doc-include-signature t)
-    ;; (lsp-ui-doc-position 'top) ;; top, bottom, or at-point
-    ;; (lsp-ui-doc-max-width 150)
-    ;; (lsp-ui-doc-max-height 30)
-    ;; (lsp-ui-doc-use-childframe t)
-    ;; (lsp-ui-doc-use-webkit t)
-    ;; lsp-ui-flycheck
     (lsp-ui-flycheck-enable t)
     :commands lsp-ui-mode
     :hook
@@ -37,8 +31,9 @@
   (leaf dap-mode
     :ensure t
     :require t)
-  (setq lsp-document-sync-method lsp--sync-incremental) ;; 'inclemental を指定してはいけない
-  (setq lsp-completion-provider t)
+
+
+
   ;; company-mode
   ;; (use-package company-lsp
   ;;   :commands company-lsp

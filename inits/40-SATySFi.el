@@ -18,29 +18,41 @@
          ))
 
   ;; LSP
-  (add-to-list 'lsp-language-id-configuration '(satysfi-mode . "satysfi-ls"))
-  ;;/Users/calros/satysfi-language-server/target/debug/satysfi-language-server
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("/Users/calros/satysfi-language-server/target/debug/satysfi-language-server"))
-                    :major-modes '(satysfi-mode)
-                    :priority 0
-                    :activation-fn (lsp-activate-on "satysfi-ls")
-                    :server-id 'satysfi-ls))
+  (use-package lsp-mode
+    :ensure t
+    :init
+    (add-to-list 'lsp-language-id-configuration '(satysfi-mode . "satysfi-ls"))
+    (lsp-register-client
+     (make-lsp-client :new-connection (lsp-stdio-connection '("~/.cargo/bin/satysfi-language-server"))
+                      :major-modes '(satysfi-mode)
+                      :priority 0
+                      :activation-fn (lsp-activate-on "satysfi-ls")
+                      :server-id 'satysfi-ls)))
+
+  (use-package company
+    :ensure t
+    :hook
+    (satysfi-mode . company-mode)
+    :config
+    (setq lsp-completion-provider :capf)
+    (setq company-minimum-prefix-length 1))
+  ;; We use lsp for completion
+  (push 'company-capf company-backends)
 
   ;; Configuration of flycheck for SATySFi
-  (require 'flycheck)
+  ;; (require 'flycheck)
 
-  (flycheck-define-checker satysfi-type
-    "A SATySFi type checker"
-    :command ("/Users/calros/bin/satysfi" "-t" source-inplace)
-    :error-patterns
-    ((error line-start
-            "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
-            (message (one-or-more not-newline)
-                     (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
-    :modes (satysfi-mode))
+  ;; (flycheck-define-checker satysfi-type
+  ;;   "A SATySFi type checker"
+  ;;   :command ("/Users/calros/bin/satysfi" "-t" source-inplace)
+  ;;   :error-patterns
+  ;;   ((error line-start
+  ;;           "! [" (one-or-more not-newline) "] at \"" (file-name) "\", line " line ", characters " (one-or-more not-newline) "-"column (one-or-more not-newline) "\n"
+  ;;           (message (one-or-more not-newline)
+  ;;                    (zero-or-more "\n" (any " ") (one-or-more not-newline))) "." line-end))
+  ;;   :modes (satysfi-mode))
 
-  (setq flycheck-satysfi-type-executable satysfi-command)
+  ;; (setq flycheck-satysfi-type-executable satysfi-command)
 
   ;; (add-to-list 'flycheck-checkers 'satysfi-type)
   )
