@@ -31,6 +31,8 @@
          "* TODO %? %^g\n:PROPERTIES:\n:EXPORT_FILE_NAME: \n:EXPORT_HUGO_SECTION: posts/%<%y>/%<%m>\n:EXPORT_DATE: %u\n:END:" :prepend t)
         ("L" "Lecures" entry (file+headline "~/Google Drive File Stream/My Drive/Lectures.org" "InBox")
          "** %?\nEntered on %U\n %i\n %a")
+        ("p" "PPL財務担当について" entry (file+headline "~/wiki/Research/research_notes.org" "ログ")
+         "** %?\nEntered on %U\n %i\n %a")
         ))
 
 ; メモをC-M-^一発で見るための設定
