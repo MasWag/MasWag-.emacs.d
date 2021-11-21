@@ -5,16 +5,6 @@
 (setq python-shell-completion-native t)
 (add-to-list 'python-shell-completion-native-disabled-interpreters "python")
 
-;; lsp-pyright
-;; (leaf lsp-pyright
-;;   :ensure t
-;;   :require t
-;;   :config
-;;   (add-hook 'python-mode-hook
-;;             #'(lambda nil
-;;                 (require 'lsp-pyright)
-;;                 (lsp))))
-
 (require 'leaf)
 (leaf python-mode :ensure t
   :interpreter ("python")
@@ -30,30 +20,29 @@
     :doc "Required by: jedi-core"
     )
 
-  (leaf company-jedi :ensure t :require t
-    :init
-    (leaf jedi-core :ensure t :require t
-      :commands (jedi:setup)
-      :hook
-      (python-mode-hook . (lambda ()
-                            (jedi:setup)
-                            (set (make-local-variable 'company-backends)
-                                 '(company-jedi company-dabbrev-code company-ispell))))
-      :config
-      (setq jedi:tooltip-method nil)  ;; pos-tip and/or popup, nil is minibuffer
-      (setq jedi:complete-on-dot t)
-      (setq jedi:use-shortcuts nil) ;; M-. and M-,
-      )
-    )
+  ;; lsp-pyright
+  (leaf lsp-pyright
+    :ensure t
+    :require t
+    :after python
+    :hook (python-mode-hook . lsp))
 
-  (leaf lsp-pylsp :ensure nil :require t
-    :doc "Fork of the python-language-server project."
-    :config
-    (setq lsp-pylsp-plugins-black-enabled t)
-    (setq lsp-pylsp-plugins-pylint-enabled t)
-    ;;(setq lsp-pylsp-plugins-flake8-enabled t)
-    ))
-
+  ;; (leaf company-jedi :ensure t :require t
+  ;;   :init
+  ;;   (leaf jedi-core :ensure t :require t
+  ;;     :commands (jedi:setup)
+  ;;     :hook
+  ;;     (python-mode-hook . (lambda ()
+  ;;                           (jedi:setup)
+  ;;                           (set (make-local-variable 'company-backends)
+  ;;                                '(company-jedi company-dabbrev-code company-ispell))))
+  ;;     :config
+  ;;     (setq jedi:tooltip-method nil)  ;; pos-tip and/or popup, nil is minibuffer
+  ;;     (setq jedi:complete-on-dot t)
+  ;;     (setq jedi:use-shortcuts nil) ;; M-. and M-,
+  ;;     )
+  ;;   )
+  )
 ;; ;;; elpy (melpa-stable)
 ;; (leaf elpy
 ;;   :ensure t
