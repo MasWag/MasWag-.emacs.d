@@ -2,16 +2,13 @@
 
 (setenv "LANG" "en_US.UTF-8")
 
-(setq package-archives nil)
-
-;; Add package-archives
+;;;; Add package-archives
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives
              '("nongnu-elpa" . "https://elpa.nongnu.org/nongnu/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/"))
 
 ;; https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -23,7 +20,7 @@
 (require 'init-loader)
 (init-loader-load)
 
-;; site-lisp
+;; add site-lisp to the load-path
 (setq load-path (cons (expand-file-name "~/.emacs.d/site-lisp") load-path))
 
 ;; use custom.el
