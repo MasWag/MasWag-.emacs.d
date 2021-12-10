@@ -57,9 +57,10 @@
                                  (org-agenda-files :maxlevel . 3)
 ;                                 (mhatta/org-buffer-files :maxlevel . 2)
                                  )))
-
 (use-package org
   :config
+  (use-package gnuplot
+    :ensure t)
   (add-hook 'org-mode-hook
             (lambda ()
               (define-key org-mode-map (kbd "C-c l") 'org-store-link)
@@ -72,10 +73,10 @@
                                  (plantuml . t)
                                  (python . t)
                                  (shell . t)
+                                 (gnuplot . t)
                                  (maxima . t)
                                  )
                                ))
-
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
