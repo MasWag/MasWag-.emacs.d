@@ -82,5 +82,15 @@
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 ;; Pomodoro method with org-mode
-(leaf org-pomodoro :ensure t :require t)
+(leaf org-pomodoro :ensure t :require t
+    :hook
+    (org-pomodoro-finished-hook . 
+                                (lambda () 
+                                  (shell-command
+                                   "osascript ~/Library/Mobile*/*/Documents/toggle-do-not-disturb.applescript")))
+    (org-pomodoro-started-hook . 
+                               (lambda () 
+                                 (shell-command
+                                  "osascript ~/Library/Mobile*/*/Documents/toggle-do-not-disturb.applescript"))))
+
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
