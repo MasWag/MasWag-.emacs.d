@@ -39,7 +39,7 @@
   :custom
   (reftex-ref-style-default-list '("Cleveref") "Use cref/Cref as default"))
 
-(cond ((equal (system-name) "MacBook-Pro-3.local")
+(cond ((member (system-name) '("MacBook-Pro-3.local" "uranus.fos.kuis.kyoto-u.ac.jp"))
        (setenv "PATH"
                (concat (getenv "PATH") ":/Library/TeX/texbin"))
        (setq tex-command "/Library/TeX/texbin/latexmk -pdf -pvc -view=none")
@@ -48,7 +48,7 @@
        (setq dvi2-command "/usr/bin/open -a Skim")
        (setq tex-pdfview-command "/usr/bin/open -a Skim")
        (setq dviprint-command-format "/usr/bin/open -a \"Adobe Acrobat Reader DC\" `echo %s | gsed -e \"s/\\.[^.]*$/\\.pdf/\"`"))
-      
+
       ((equal (system-name) "reimu")
        (setq tex-command "/usr/bin/latexmk -pdf -pvc -view=none")
        (setq dvi2-command "/usr/bin/evince")
