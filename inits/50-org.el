@@ -71,6 +71,7 @@
                                '(
                                  (C . t)
                                  (plantuml . t)
+                                 (dot . t)
                                  (python . t)
                                  (shell . t)
                                  (gnuplot . t)
