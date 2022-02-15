@@ -68,6 +68,7 @@
            (if (null buf)
                (message "[Synctex]: %s is not opened..." fname)
              (switch-to-buffer buf)
+             (goto-char 0)
              (forward-line (car linecol))
              (unless (= col -1)
                (move-to-column col))
