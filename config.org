@@ -538,6 +538,14 @@ Pomodoro technique in org-mode
     :if (display-graphic-p)
     :hook (after-init . global-emojify-mode))
 #+END_SRC
+* w3m
+The following shows my configuration of w3m. It just installs w3m.
+
+#+BEGIN_SRC elisp :tangle ./inits/50-w3m.el :noweb yes
+(leaf w3m
+    <<ENSURE_INSTALLATION>>
+    :require t)
+#+END_SRC
 * TODO org-noter
 * TODO tikz
 
