@@ -531,7 +531,7 @@ Pomodoro technique in org-mode
 
 * emojify
 
-#+BEGIN_SRC elisp :tangle ./inits/50-emojify.el
+#+BEGIN_SRC elisp :tangle ./inits/50-emojify.el :noweb yes
   (leaf emojify
     <<ENSURE_INSTALLATION>>
     :require t
