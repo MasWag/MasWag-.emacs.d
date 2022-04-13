@@ -546,6 +546,86 @@ The following shows my configuration of w3m. It just installs w3m.
     <<ENSURE_INSTALLATION>>
     :require t)
 #+END_SRC
+* Slack
+
+The following shows my configuration of [[https://github.com/yuya373/emacs-slack][slack]].
+
+#+BEGIN_SRC elisp :tangle ./inits/50-slack.el :noweb yes
+  (leaf slack
+    :commands (slack-start)
+    <<ENSURE_INSTALLATION>>
+    :require t
+    :init  
+    (leaf emojify
+      <<ENSURE_INSTALLATION>>
+      :require t
+      )
+    (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+    (setq slack-prefer-current-team t)
+    :config
+    <<LAB8_SLACK_CONFIGURATION>>
+    <<ERATOMMSD_SLACK_CONFIGURATION>>
+    ;; Define the key binding
+    :bind (;("M-s O" . moccur)
+           (:slack-mode-map
+            ("C-c C-t" . slack-change-current-team)
+            ("C-c C-r" . slack-message-add-reaction)
+            ("C-c M-r" . slack-message-remove-reaction)
+            ("C-c C-c" . slack-select-unread-rooms)
+            ("C-c C-s" . slack-channel-select)
+            ("C-c C-g" . slack-group-select)
+            ("C-c C-i" . slack-im-select))
+           (:slack-thread-message-buffer-mode-map
+            ("C-c C-t" . slack-change-current-team)
+            ("C-c C-r" . slack-message-add-reaction)
+            ("C-c M-r" . slack-message-remove-reaction)
+            ("C-c C-c" . slack-select-unread-rooms)
+            ("C-c C-s" . slack-channel-select)
+            ("C-c C-g" . slack-group-select)
+            ("C-c C-i" . slack-im-select))))
+
+  (leaf alert
+    <<ENSURE_INSTALLATION>>
+    :require t
+    :commands (alert)
+    :init
+    (setq alert-default-style 'notifier))
+#+END_SRC
+
+** lab8
+
+Here are some configuration on lab8 group.
+
+#+NAME: LAB8_SLACK_CONFIGURATION
+#+BEGIN_SRC elisp
+  (slack-register-team
+       :name "lab8"
+       :default t
+       :token (auth-source-pick-first-password
+         :host "lab8.slack.com"
+         :user "mwaga@fos.kuis.kyoto-u.ac.jp")
+       :cookie (auth-source-pick-first-password
+         :host "lab8.slack.com"
+         :user "mwaga@fos.kuis.kyoto-u.ac.jp^cookie")
+       :full-and-display-names t)
+#+END_SRC
+
+** ERATO MMSD
+
+Here are some configuration on ERATO MMSD group.
+
+#+NAME: ERATOMMSD_SLACK_CONFIGURATION
+#+BEGIN_SRC elisp
+  (slack-register-team
+       :name "ERATO MMSD"
+       :token (auth-source-pick-first-password
+         :host "eratommsd.slack.com"
+         :user "mwaga@is.s.u-tokyo.ac.jp")
+       :cookie (auth-source-pick-first-password
+         :host "eratommsd.slack.com"
+         :user "mwaga@is.s.u-tokyo.ac.jp^cookie")
+       :full-and-display-names t)
+#+END_SRC
 * TODO org-noter
 * TODO tikz
 
