@@ -551,45 +551,47 @@ The following shows my configuration of w3m. It just installs w3m.
 The following shows my configuration of [[https://github.com/yuya373/emacs-slack][slack]].
 
 #+BEGIN_SRC elisp :tangle ./inits/50-slack.el :noweb yes
-  (leaf slack
-    :commands (slack-start)
-    <<ENSURE_INSTALLATION>>
-    :require t
-    :init  
-    (leaf emojify
+    (leaf slack
+      :commands (slack-start)
       <<ENSURE_INSTALLATION>>
       :require t
-      )
-    (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
-    (setq slack-prefer-current-team t)
-    :config
-    <<LAB8_SLACK_CONFIGURATION>>
-    <<ERATOMMSD_SLACK_CONFIGURATION>>
-    ;; Define the key binding
-    :bind (;("M-s O" . moccur)
-           (:slack-mode-map
-            ("C-c C-t" . slack-change-current-team)
-            ("C-c C-r" . slack-message-add-reaction)
-            ("C-c M-r" . slack-message-remove-reaction)
-            ("C-c C-c" . slack-select-unread-rooms)
-            ("C-c C-s" . slack-channel-select)
-            ("C-c C-g" . slack-group-select)
-            ("C-c C-i" . slack-im-select))
-           (:slack-thread-message-buffer-mode-map
-            ("C-c C-t" . slack-change-current-team)
-            ("C-c C-r" . slack-message-add-reaction)
-            ("C-c M-r" . slack-message-remove-reaction)
-            ("C-c C-c" . slack-select-unread-rooms)
-            ("C-c C-s" . slack-channel-select)
-            ("C-c C-g" . slack-group-select)
-            ("C-c C-i" . slack-im-select))))
+      :init  
+      (leaf emojify
+        <<ENSURE_INSTALLATION>>
+        :require t
+        )
+      (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
+      (setq slack-prefer-current-team t)
+      :config
+      <<LAB8_SLACK_CONFIGURATION>>
+      <<ERATOMMSD_SLACK_CONFIGURATION>>
+      ;; Define the key binding
+      :bind (;("M-s O" . moccur)
+             (:slack-mode-map
+              ("C-c C-t" . slack-change-current-team)
+              ("C-c C-r" . slack-message-add-reaction)
+              ("C-c M-r" . slack-message-remove-reaction)
+              ("C-c C-c" . slack-select-unread-rooms)
+              ("C-c C-s" . slack-channel-select)
+              ("C-c C-g" . slack-group-select)
+              ("C-c C-i" . slack-im-select))
+             (:slack-thread-message-buffer-mode-map
+              ("C-c C-t" . slack-change-current-team)
+              ("C-c C-r" . slack-message-add-reaction)
+              ("C-c M-r" . slack-message-remove-reaction)
+              ("C-c C-c" . slack-select-unread-rooms)
+              ("C-c C-s" . slack-channel-select)
+              ("C-c C-g" . slack-group-select)
+              ("C-c C-i" . slack-im-select))))
 
-  (leaf alert
-    <<ENSURE_INSTALLATION>>
-    :require t
-    :commands (alert)
-    :init
-    (setq alert-default-style 'notifier))
+    (leaf alert
+      <<ENSURE_INSTALLATION>>
+      :require t
+      :commands (alert)
+      :init
+      ;; (setq alert-default-style 'notifier)
+      (setq alert-default-style 'osx-notifier)
+      )
 #+END_SRC
 
 ** lab8
