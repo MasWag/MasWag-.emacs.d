@@ -29,6 +29,9 @@
 
 (load-file "~/.emacs.d/local_settings.el")
 
+;; todoist-org-export
+(require 'todoist-org-export)
+
 ;; yatexの設定ファイルを読み込む
 ;;(load-file "~/.emacs.d/init4yatex.el")
 
