@@ -20,7 +20,7 @@
 ; - https://ayatakesi.github.io/emacs/24.5/elisp_html/Sets-And-Lists.html
 
 ;;背景色の設定
-( when window-system
+(when window-system
   (custom-set-faces
    '(default ((t
 	       (:background "#000040" :foreground "#e0e0e0")
@@ -36,6 +36,9 @@
 
 ;; フレーム透過設定
 (add-to-list 'default-frame-alist '(alpha . (0.80 0.80)))
+;; Use VL Gothic on Linux
+(when (equal system-type 'gnu/linux)
+  (add-to-list 'default-frame-alist '("-VL  -VL ゴシック-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")))
 ;; tool-barを消す
 (tool-bar-mode 0)
 
