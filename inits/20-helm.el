@@ -1,4 +1,4 @@
-(when (require 'helm-config nil t)
+;(when (require 'helm-config nil t)
   (helm-mode 1)
 
   (define-key global-map (kbd "M-x")     'helm-M-x)
@@ -43,6 +43,6 @@
                         ;; '^' is a pattern for basename
                         ;; and not required because the directory name is prepended
                         (substring input-pattern 1)
-                      (concat ".*" input-pattern)))))))
+                      (concat ".*" input-pattern))))));)
 
 

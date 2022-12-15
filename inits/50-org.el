@@ -3,7 +3,9 @@
 (setq org-default-notes-file "notes.org")
 
 ; Org-captureを呼び出すキーシーケンス
-(define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-cnn" 'org-capture)
+; Org-agendaを呼び出すキーシーケンス
+(define-key global-map "\C-cna" 'org-agenda)
 ; Org-captureのテンプレート（メニュー）の設定
 (setq org-capture-templates
       '(("n" "Note" entry (file+headline "~/wiki/notes.org" "Notes")

@@ -1,4 +1,4 @@
-(require 'matlab-mode)
+(require 'matlab)
 (define-key matlab-mode-map "\C-h" 'delete-backward-char)
 (add-hook 'matlab-mode-hook 'auto-complete-mode)
 (autoload 'matlab-mode "matlab" "Enter MATLAB mode." t)
@@ -6,7 +6,7 @@
 (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
 
 ;; auto-complete-modeの自動起動
-(add-to-list 'ac-modes 'matlab-mode)
+;; (add-to-list 'ac-modes 'matlab-mode)
 
 (setq matlab-shell-command "/usr/local/bin/matlab"  
       matlab-shell-command-swithes '("-nodesktop -v=glnxa64")  
