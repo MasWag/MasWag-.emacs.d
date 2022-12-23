@@ -2,10 +2,6 @@
 
 (setq org-default-notes-file "notes.org")
 
-; Org-captureを呼び出すキーシーケンス
-(define-key global-map "\C-cnn" 'org-capture)
-; Org-agendaを呼び出すキーシーケンス
-(define-key global-map "\C-cna" 'org-agenda)
 ; Org-captureのテンプレート（メニュー）の設定
 (setq org-capture-templates
       '(("n" "Note" entry (file+headline "~/wiki/notes.org" "Notes")
@@ -17,10 +13,16 @@
         ;; ("c" "CyVeriA" entry (file "~/wiki/Research/cyveria.org")
         ;;  "* %?\nEntered on %U" )
 ;         "* TODO %?\nEntered on %U\n\n- Purpose :: \n\n** Output mapper\n\n** Specification\n\n** Result" :prepend t)
-        ("h" "HAMoni" entry (file "~/parametric_HA_monitor/meeting_note.txt")
-         "* %<%Y-%m-%d %a>\nEntered on %U\n** Masaki %?\n\n** Etienne" 
-         :prepend t)
+        ;; ("h" "HAMoni" entry (file "~/parametric_HA_monitor/meeting_note.txt")
+        ;;  "* %<%Y-%m-%d %a>\nEntered on %U\n** Masaki %?\n\n** Etienne"
+        ;;  :prepend t)
         ("d" "ActiveDTALearning" entry (file+headline "~/wiki/Research/ActiveDTALearning.org" "Notes")
+         "** %?\nEntered on %U\n %i\n %a"
+         :prepend t)
+        ("h" "HALearning" entry (file+headline "~/wiki/Research/HALearning.org" "Notes")
+         "** %?\nEntered on %U\n %i\n %a"
+         :prepend t)
+        ("m" "MQTT Monitoring" entry (file+headline "~/wiki/Research/mqtt_monitoring.org" "Notes")
          "** %?\nEntered on %U\n %i\n %a"
          :prepend t)
         ("b" "Bookmark" entry (file+headline "~/wiki/Bookmark.org" "InBox")
@@ -79,7 +81,9 @@
                                  (gnuplot . t)
                                  (maxima . t)
                                  )
-                               ))
+                               )
+  :bind (("C-c n n" . org-capture)
+         ("C-c n a" . org-agenda)))
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging

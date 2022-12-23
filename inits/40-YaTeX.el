@@ -39,7 +39,7 @@
   :custom
   (reftex-ref-style-default-list '("Cleveref") "Use cref/Cref as default"))
 
-(cond ((member (system-name) '("MacBook-Pro-3.local" "uranus.fos.kuis.kyoto-u.ac.jp"))
+(cond ((equal system-type 'darwin)
        (setenv "PATH"
                (concat (getenv "PATH") ":/Library/TeX/texbin"))
        (setq tex-command "/Library/TeX/texbin/latexmk -pdf -pvc -view=none")

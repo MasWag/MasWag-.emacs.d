@@ -538,11 +538,54 @@ Pomodoro technique in org-mode
     :if (display-graphic-p)
     :hook (after-init . global-emojify-mode))
 #+END_SRC
+* TODO notmuch
+#+BEGIN_SRC elisp :tangle ./inits/30-notmuch.el :noweb yes
+  (leaf notmuch
+    :config
+      smtpmail-default-smtp-server "io.fos.kuis.kyoto-u.ac.jp"
+      mu4e-sent-folder "/lab8/Sent/Inbox/"
+;; (setq smtpmail-smtp-server "io.fos.kuis.kyoto-u.ac.jp")
+;; (setq smtpmail-smtp-service 25)
+;; (setq smtpmail-smtp-server "localhost")
+;; (setq smtpmail-smtp-service 2525)
+  ;;;; Partially taken from here: https://kkatsuyuki.github.io/notmuch-conf/
+    (setq +notmuch-sync-backend 'mbsync
+          message-send-mail-function 'message-smtpmail-send-it
+          notmuch-fcc-dirs "lab8/Sent/Inbox/")
+    ;; postponed message is put in the following draft directory
+    (setq message-auto-save-directory "~/Maildir/drafts/")
+    (setq message-kill-buffer-on-exit t)
+    ;; change the directory to store the sent mail
+    (setq message-directory "~/Maildir/lab8/Sent/INBOX/")
+    ;;  New message should come first
+    (setq-default notmuch-search-oldest-first nil)
+    (setq notmuch-saved-searches
+          '((:name "inbox"   :query "tag:inbox not tag:trash" :key "i")
+            (:name "flagged" :query "tag:flagged"             :key "f")
+            (:name "unread"  :query "tag:unread"              :key "u")
+            (:name "sent"    :query "tag:sent"                :key "s")
+            (:name "drafts"  :query "tag:draft"               :key "d")))
+    :bind (:notmuch-show-mode-map
+                ("n" . notmuch-show-next-thread-show)
+                ("p" . notmuch-show-previous-thread-show))
+    <<ENSURE_INSTALLATION>>
+    :require t)
+#+END_SRC
 * w3m
 The following shows my configuration of w3m. It just installs w3m.
 
 #+BEGIN_SRC elisp :tangle ./inits/50-w3m.el :noweb yes
 (leaf w3m
+    :config
+    (setq w3m-type 'w3m')
+    ;; Define the search engine. They can be used with =C-u M-x w3m-search=
+    (eval-after-load "w3m-search"
+      '(progn
+         (add-to-list 'w3m-search-engine-alist '("dblp" "https://dblp.uni-trier.de/search?q=%s" nil))
+         (add-to-list 'w3m-search-engine-alist '("Do People Say" "https://dopeoplesay.com/q/%s" nil))
+         (add-to-list 'w3m-search-engine-alist '("Lexico" "https://www.lexico.com/definition/%s" nil))
+         (add-to-list 'w3m-search-engine-alist '("thesaurus.com" "https://www.thesaurus.com/browse/%s" nil))
+         (add-to-list 'w3m-search-engine-alist '("Google Scholar" "https://scholar.google.co.jp/scholar?hl=ja&q=%s" nil))))
     <<ENSURE_INSTALLATION>>
     :require t)
 #+END_SRC

@@ -5,6 +5,9 @@
 (autoload 'matlab-shell "matlab" "Interactive MATLAB mode." t)
 (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
 
+(leaf matlab
+ :ensure t)
+
 ;; auto-complete-modeの自動起動
 ;; (add-to-list 'ac-modes 'matlab-mode)
 

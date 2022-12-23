@@ -11,6 +11,10 @@
 ;; add /usr/local/bin to PATH if not
 (if (not (string-match "\\(^\\|:\\)/usr/local/bin\\($\\|\\:\\)" (getenv "PATH")))
     (setenv "PATH" (concat '"/usr/local/bin:" (getenv "PATH"))))
+
+(if (not (getenv "XAPIAN_CJK_NGRAM"))
+    (setenv "XAPIAN_CJK_NGRAM" "1"))
+
 ;; the same thing for exec-path
 (if (not (member "/usr/local/bin" exec-path))
     (setq exec-path (cons "/usr/local/bin" exec-path)))
@@ -46,7 +50,7 @@
 (global-set-key "\C-h" 'delete-backward-char)
 
 ;; 括弧を強調表示
-(show-paren-mode t)
+(show-paren-mode 1)
 
 ;; IMEの設定
 (define-key global-map [zenkaku-hankaku] 'toggle-input-method)
