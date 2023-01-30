@@ -540,36 +540,35 @@ Pomodoro technique in org-mode
 #+END_SRC
 * TODO notmuch
 #+BEGIN_SRC elisp :tangle ./inits/30-notmuch.el :noweb yes
-  (leaf notmuch
-    :config
-      smtpmail-default-smtp-server "io.fos.kuis.kyoto-u.ac.jp"
-      mu4e-sent-folder "/lab8/Sent/Inbox/"
-;; (setq smtpmail-smtp-server "io.fos.kuis.kyoto-u.ac.jp")
-;; (setq smtpmail-smtp-service 25)
-;; (setq smtpmail-smtp-server "localhost")
-;; (setq smtpmail-smtp-service 2525)
-  ;;;; Partially taken from here: https://kkatsuyuki.github.io/notmuch-conf/
-    (setq +notmuch-sync-backend 'mbsync
-          message-send-mail-function 'message-smtpmail-send-it
-          notmuch-fcc-dirs "lab8/Sent/Inbox/")
-    ;; postponed message is put in the following draft directory
-    (setq message-auto-save-directory "~/Maildir/drafts/")
-    (setq message-kill-buffer-on-exit t)
-    ;; change the directory to store the sent mail
-    (setq message-directory "~/Maildir/lab8/Sent/INBOX/")
-    ;;  New message should come first
-    (setq-default notmuch-search-oldest-first nil)
-    (setq notmuch-saved-searches
-          '((:name "inbox"   :query "tag:inbox not tag:trash" :key "i")
-            (:name "flagged" :query "tag:flagged"             :key "f")
-            (:name "unread"  :query "tag:unread"              :key "u")
-            (:name "sent"    :query "tag:sent"                :key "s")
-            (:name "drafts"  :query "tag:draft"               :key "d")))
-    :bind (:notmuch-show-mode-map
-                ("n" . notmuch-show-next-thread-show)
-                ("p" . notmuch-show-previous-thread-show))
-    <<ENSURE_INSTALLATION>>
-    :require t)
+    (leaf notmuch
+      :config
+      (setq smtpmail-default-smtp-server "io.fos.kuis.kyoto-u.ac.jp")
+      (setq mu4e-sent-folder "/lab8/Sent/Inbox/")
+  ;; (setq smtpmail-smtp-server "io.fos.kuis.kyoto-u.ac.jp")
+  ;; (setq smtpmail-smtp-service 25)
+  ;; (setq smtpmail-smtp-server "localhost")
+  ;; (setq smtpmail-smtp-service 2525)
+    ;;;; Partially taken from here: https://kkatsuyuki.github.io/notmuch-conf/
+      (setq message-send-mail-function 'message-smtpmail-send-it
+            notmuch-fcc-dirs "lab8/Sent/Inbox/")
+      ;; postponed message is put in the following draft directory
+      (setq message-auto-save-directory "~/Maildir/drafts/")
+      (setq message-kill-buffer-on-exit t)
+      ;; change the directory to store the sent mail
+      (setq message-directory "~/Maildir/lab8/Sent/INBOX/")
+      ;;  New message should come first
+      (setq-default notmuch-search-oldest-first nil)
+      (setq notmuch-saved-searches
+            '((:name "inbox"   :query "tag:inbox not tag:trash" :key "i")
+              (:name "flagged" :query "tag:flagged"             :key "f")
+              (:name "unread"  :query "tag:unread"              :key "u")
+              (:name "sent"    :query "tag:sent"                :key "s")
+              (:name "drafts"  :query "tag:draft"               :key "d")))
+      :bind (:notmuch-show-mode-map
+                  ("n" . notmuch-show-next-thread-show)
+                  ("p" . notmuch-show-previous-thread-show))
+      <<ENSURE_INSTALLATION>>
+      :require t)
 #+END_SRC
 * w3m
 The following shows my configuration of w3m. It just installs w3m.
