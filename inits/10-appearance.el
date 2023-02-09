@@ -42,7 +42,12 @@
 (add-to-list 'default-frame-alist '(alpha . (0.80 0.80)))
 ;; Use VL Gothic on Linux
 (when (equal system-type 'gnu/linux)
-  (add-to-list 'default-frame-alist '("-VL  -VL ゴシック-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1")))
+  (add-to-list 'default-frame-alist '(font . "VL Gothic-13"))
+  ;;  Ricty Discord
+  ;; (add-to-list 'default-frame-alist '(font . "Ricty Discord-13"))
+  ;; Something wrong
+  ;; (add-to-list 'default-frame-alist '("-VL  -VL ゴシック-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1"))
+  )
 ;; tool-barを消す
 (tool-bar-mode 0)
 
