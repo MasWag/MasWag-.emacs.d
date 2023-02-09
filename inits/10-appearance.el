@@ -74,6 +74,9 @@
 ;; (global-set-key [?\C-;] 'iedit-mode)
 
 
+;; Let the system-time-locale to be "C"
+(setq system-time-locale "C")
+
 (global-set-key "\C-xc" 'compile)
 (setq-default indent-tabs-mode nil)
 
