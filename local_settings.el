@@ -9,10 +9,11 @@
       ((equal (system-name) "reimu")
        (load-file "/opt/nusmv/share/nusmv/contrib/nusmv-mode.el")))
 
-(use-package todoist
-  :bind (:map todoist-mode-map
+(leaf todoist
+  :ensure t
+  :bind ((todoist-mode-map
          ("C-k" . todoist-delete-task)
-         ("C-c C-t" . todoist-close-task))
+         ("C-c C-t" . todoist-close-task)))
   :config
   (setq todoist-token "ff31ef62eebec202624703ec7d6beefa847c6e86"))
 
