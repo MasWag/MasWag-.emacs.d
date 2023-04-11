@@ -609,7 +609,7 @@ Image types are symbols like `xbm' or `jpeg'."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flycheck flyspell biblio yatex markdown-mode org-noter ol-notmuch emojify mastodon consult-notmuch notmuch git-modes magit-gitflow magit yasnippet-snippets yasnippet company-tabnine company embark-consult embark orderless marginalia consult vertico ddskk ace-window ace-jump-mode iedit macrostep leaf-tree leaf-convert blackout el-get hydra leaf-keywords)))
+   '(php-eldoc php-mode todoist rg flyspell-correct flycheck flyspell biblio yatex markdown-mode org-noter ol-notmuch emojify mastodon consult-notmuch notmuch git-modes magit-gitflow magit yasnippet-snippets yasnippet company-tabnine company embark-consult embark orderless marginalia consult vertico ddskk ace-window ace-jump-mode iedit macrostep leaf-tree leaf-convert blackout el-get hydra leaf-keywords)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
