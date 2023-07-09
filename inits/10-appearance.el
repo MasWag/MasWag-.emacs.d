@@ -11,6 +11,9 @@
 ;; add /usr/local/bin to PATH if not
 (if (not (string-match "\\(^\\|:\\)/usr/local/bin\\($\\|\\:\\)" (getenv "PATH")))
     (setenv "PATH" (concat '"/usr/local/bin:" (getenv "PATH"))))
+;; add /opt/homebrew/bin to PATH if not
+(if (not (string-match "\\(^\\|:\\)/opt/homebrew/bin\\($\\|\\:\\)" (getenv "PATH")))
+    (setenv "PATH" (concat '"/opt/homebrew/bin:" (getenv "PATH"))))
 
 (if (not (getenv "XAPIAN_CJK_NGRAM"))
     (setenv "XAPIAN_CJK_NGRAM" "1"))
@@ -18,6 +21,8 @@
 ;; the same thing for exec-path
 (if (not (member "/usr/local/bin" exec-path))
     (setq exec-path (cons "/usr/local/bin" exec-path)))
+(if (not (member "/opt/homebrew/bin" exec-path))
+    (setq exec-path (cons "/opt/homebrew/bin" exec-path)))
 ;; References
 ; - https://flex.phys.tohoku.ac.jp/texi/eljman/eljman_220.html
 ; - https://flex.phys.tohoku.ac.jp/texi/eljman/eljman_60.html
