@@ -10,7 +10,7 @@ Image types are symbols like `xbm' or `jpeg'."
 (require 'package)
 ;;;; Add package-archives
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/") t)
 ;; Initialize
 (package-initialize)
 ;; Locale setting
@@ -38,8 +38,8 @@ Image types are symbols like `xbm' or `jpeg'."
              (t ())
              ))))
 ;; Transparent background
-(when window-system
-  (add-to-list 'default-frame-alist '(alpha . (0.80 0.80))))
+;; (when window-system
+;;   (add-to-list 'default-frame-alist '(alpha . (0.80 0.80))))
 ;; Use VL Gothic
 (when window-system
   (add-to-list 'default-frame-alist '(font . "VL Gothic-15")))
@@ -369,7 +369,7 @@ Image types are symbols like `xbm' or `jpeg'."
 (leaf yasnippet
   :ensure t
   :custom
-  (yas-global-mode . t)
+  (yas-global-mode . 1)
   :config
   ;; I install yasnippet-snippets to get the default snippets
   (leaf yasnippet-snippets
@@ -427,6 +427,27 @@ Image types are symbols like `xbm' or `jpeg'."
   :custom
   ;; I prefer showing the entire thread
   (consult-notmuch-show-single-message . nil))
+;; Load Elfeed
+(leaf elfeed
+  :ensure t
+  :require t
+  :init
+  (leaf elfeed-dashboard
+    :ensure t
+    ;; Use C-c m f to open elfeed
+    :bind ("C-c m f" . elfeed-dashboard)
+    :custom
+    (elfeed-dashboard-file . "~/elfeed-dashboard.org")
+    :config
+    (advice-add 'elfeed-search-quit-window
+                :after #'elfeed-dashboard-update-links))
+  :config
+  (leaf elfeed-org
+    :ensure t
+    :init
+    (elfeed-org)
+    :custom
+    (rmh-elfeed-org-files . '("~/wiki/feed.org"))))
 (leaf mastodon
   :ensure t
   :init
@@ -459,14 +480,9 @@ Image types are symbols like `xbm' or `jpeg'."
   )
 (leaf ol-notmuch
   :init
-  (defun ol-notmuch-kill-new ()
-    (interactive)
-    (kill-new
-     (concat "notmuch:id:"
-             (notmuch-show-get-message-id t))))
   :bind ((:notmuch-show-mode-map
          ;; We add the current mail to kill-ring with C-c l
-         ("C-c l" . ol-notmuch-kill-new)))
+         ("C-c l" . org-store-link)))
   :ensure t)
 (setq org-capture-templates
       '(("n" "Note" entry (file+headline "~/wiki/notes.org" "Notes")
@@ -542,7 +558,8 @@ Image types are symbols like `xbm' or `jpeg'."
          (setq tex-command
                "/Library/TeX/texbin/latexmk -pvc -view=none")
          (setq tex-dvi-view-command
-               "/usr/bin/open -a Skim")
+               "/usr/bin/open -a Skim"
+               dvi2-command "/usr/bin/open -a Skim")
          (setq tex-pdfview-command
                "/usr/bin/open -a Skim"))
         ((equal system-type 'gnu/linux)
@@ -565,10 +582,13 @@ Image types are symbols like `xbm' or `jpeg'."
 (package-install 'biblio)
 (leaf ispell
   :init
-      ;;; Use aspell as a spell checker
-  (cond ((equal system-type 'darwin)
-         (setq ispell-program-name
-               "/usr/local/bin/aspell"))
+  ;; Use aspell as a spell checker
+  (cond ((and (equal system-type 'darwin)
+              (string-match "x86_64" system-configuration))
+         (setq ispell-program-name "/usr/local/bin/aspell"))
+        ((and (equal system-type 'darwin)
+              (string-match "aarch64" system-configuration))
+         (setq ispell-program-name "/opt/homebrew/bin/aspell"))
         ((equal system-type 'gnu/linux)
          (setq ispell-program-name
                "/usr/bin/aspell")))
@@ -603,6 +623,20 @@ Image types are symbols like `xbm' or `jpeg'."
   :bind (flycheck-mode-map
             ("M-n" . flycheck-next-error)
             ("M-p" . flycheck-previous-error)))
+;; terraform-mode for Terraform
+(leaf terraform-mode
+  :ensure t
+  :hook (terraform-mode-hook . lsp-deferred))
+(leaf lsp-mode
+  :ensure t
+  :commands lsp
+  :config
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection
+                     '("terraform"))
+    :major-modes '(terraform-mode)
+    :server-id 'terraform-ls)))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
